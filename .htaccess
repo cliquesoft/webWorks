@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond "%{HTTP_USER_AGENT}" "!(Windows\ NT\ 5\.1|Windows\ NT\ 5\.2)" [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+# NOTE: the second 'RewriteCond' is so Windows XP users don't get redirected to https due to issues with that OS	https://help.dreamhost.com/hc/en-us/articles/216539558
+
+DirectoryIndex default.sh default.php default.html index.sh index.php index.html
+

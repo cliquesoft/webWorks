@@ -1,0 +1,89 @@
+/* the below is for the popup calendars */
+
+#divCalendar {							/* WARNING: must set the "top" and "left" properties in a different css file */
+	position: absolute;
+	display: none;
+	width: 300px;
+	color: #fff;
+	background-color: #808080;
+	border-radius: 0.3em;
+	border: 1px solid #fff;
+	box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+	z-index: 1003;
+}
+
+/* header */
+#divCalendar .ulCalendar { margin-top: 4px; width: 100%; font-size: 10px; }
+#divCalendar .ulCalendar li { display: inline-block; }
+#divCalendar .ulCalendar li:nth-child(1) { width: 38%; }
+#divCalendar .ulCalendar li:nth-child(2) { width: 25%; text-align: center; }
+#divCalendar .ulCalendar li:nth-child(3) { width: 26%; text-align: right; }
+#divCalendar .ulCalendar li:nth-child(4) { width: 10%; text-align: right; }
+#divCalendar .ulCalendar .listbox,
+#divCalendar .ulCalendar .textbox {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #808080;
+  border-radius: 0;
+  border: 1px solid #8f8f8f;
+  box-shadow: none;
+}
+#divCalendar .ulCalendar .listbox { margin-left: 4px; }
+#divCalendar .ulCalendar .textbox { width: 50px; text-align: center; }
+#divCalendar .ulCalendar li span { float: none; color: #fff; border-bottom: 1px solid #ccc; cursor: pointer; }
+#divCalendar .ulCalendar li img { margin-bottom: -6px; margin-right: 2px; cursor: pointer; }
+
+/* calendar */
+#divCalendar .tblCalendar { width: 100%; font-size: 10px; }
+
+#divCalendar .tblCalendar th {
+	padding-top: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #aaa;
+	text-align: center;
+	border-bottom: 1px solid #8f8f8f;
+}
+  
+#divCalendar .tblCalendar td { width: 14%; }
+#divCalendar .tblCalendar td.tdTitle { }
+
+#divCalendar .tblCalendar td a { display: block; width: 100%; border: 1px solid #8f8f8f; border-right-width: 0; text-align: center; }
+#divCalendar .tblCalendar td .aToday { color: #4088ff; background-color: #fff; border: 1px solid #4088ff; }
+#divCalendar .tblCalendar td .aNC { color: #8f8f8f; }				/* (N)ot (C)urrent months dates */
+#divCalendar .tblCalendar td .aWeekday { color: #fff; }
+#divCalendar .tblCalendar td .aWeekend { color: #ccc; }
+#divCalendar .tblCalendar td .aSel { color: #fff; background-color: #4088ff; border: 1px solid #fff; }
+
+
+
+
+
+
+/* LEGACY */
+
+#divCalendar .tblCalendar td img { float: right; margin-left: 3px; cursor: pointer; }
+
+#divCalendar .tblCalendar td.tdTitle span { margin-left: 30px; color: #fff; border-bottom: 1px solid #ccc; cursor: pointer; }
+
+#divCalendar .tblCalendar .listbox,
+#divCalendar .tblCalendar .textbox {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #808080;
+  border-radius: 0;
+  border: 1px solid #8f8f8f;
+  box-shadow: none;
+}
+#divCalendar .tblCalendar .textbox { float: right; width: 50px; text-align: center; }
+
+
+
+
+
+
+

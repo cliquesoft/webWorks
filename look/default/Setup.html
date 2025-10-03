@@ -1,0 +1,249 @@
+<!doctype html>
+<head>
+	<title>webBooks [Setup]</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Dave Henderson">
+	<meta name="description" content="webBooks - online business management software">
+	<meta name="keywords" content="" />
+	<!-- http://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers -->
+	<!--
+	<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+	<meta http-equiv='Pragma' content='no-cache' />
+	<meta http-equiv='Expires' content='0' />
+	-->
+	<!-- http://stackoverflow.com/questions/21738675/why-wont-my-viewport-tag-properly-use-device-width-no-zoom-on-most-mobile-dev -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- https://www.favicon-generator.org/ -->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="imgs/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="manifest" href="imgs/manifest.json">
+	<link rel="apple-touch-icon" sizes="57x57" href="imgs/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="imgs/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="imgs/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="imgs/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="imgs/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="imgs/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="imgs/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="imgs/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="imgs/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="imgs/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="imgs/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon-16x16.png">
+
+	<link rel="stylesheet" type="text/css" href="look/default/_global.css?v=1.0">	<!-- WARNING: these two MUST come first!!! -->
+	<link rel="stylesheet" type="text/css" href="look/default/_module.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="look/default/_popup.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="look/default/Setup.css?v=1.0">
+
+	<script language="javascript" src="code/_ajax.js"></script>
+<!--	<script language="javascript" src="code/_Cookie.js"></script>	-->
+	<script language="javascript" src="code/_global.js"></script>
+<!--
+	<script language="javascript" src="code/_Listbox.js"></script>
+	<script language="javascript" src="code/_popup.js"></script>
+-->
+	<script language="javascript" src="code/Application.js"></script>
+	<script language="javascript" src="code/Setup.js"></script>
+	<script language="javascript" src="code/jQuery_3.4.1.js"></script>
+
+	<script language="javascript">
+	<!--
+		function formLoad() {
+			formLayout();
+// VER2 - this will pull in any existing values from prior configs
+//			Setup('load');
+			_sAjaxUI = 'notice';
+		}
+
+		function formLayout() {
+			document.getElementById('divContainer').style.height = 'calc(100% - '+$('.header').height()+'px)';
+		}
+
+	//-->
+	</script>
+</head>
+<body onLoad="formLoad();" onResize="formLayout();">
+	<input type="hidden" id="hidSID" value='' />				<!-- used to validate user submissions -->
+	<input type="hidden" id="hidUsername" value='' />			<!-- used to store the logged in username -->
+
+
+	<div id="divPopup"></div>
+	<div id="divOverlay" class="overlay"></div>				<!-- this is to "blackout" the background for "popups" -->
+
+
+	<div class="page">
+		<div class="header">
+				Welcome and thanks for taking an interest in our project! This wizard is designed to be a
+				quick and simple way to install the software while allowing its configuration to take place
+				from within the software itself, once this process has been completed. In the event that any
+				of the parameters below are not easily understood, our staff has added helpful tips that can
+				be shown by holding the mouse cursor over any item below. More indepth information can be
+				found by visiting our <a href="http://wiki.cliquesoft.org/index.php?title=webBooks#Installation">wiki</a>,
+				with additional assistence available using our <a href="http://forums.cliquesoft.org">forums</a>.
+				Of course if you have a technical support contract, feel free to contact our staff via phone or email!
+		</div>
+		<div id='divContainer' class='container'>
+			<form action="" id="formInstall">
+				<ul>
+					<li>&nbsp;
+					<li><h1><img src="imgs/default/help.png" onClick="$('#liApplication').toggle('slow');" />Application</h1>
+					<li id='liApplication'><p>
+						This section deals with automated communication with users. There are three contacts below that
+						will need to be supplied, which we'll cover below:<br />
+						<br />
+						The <b>System Contact</b> relates to the name and email address that will be used in the
+						"From" field when this software sends automated messages.  These two fields should reflect an
+						account that will <u>NOT</u> be able to receive replies and is usually a "noreply@mydomain.com"
+						address.<br />
+						<br />
+						The <b>Support Contact</b>, as it suggests, needs to be directed to an individual or group that can
+						process technical issues related to the operation of this software when errors occur. This would
+						typically be your network administrator.<br />
+						<br />
+						The <b>Security Contact</b> concludes this list, and relates to an individual or group that can
+						understand notifications related to potential malicious activity that has been detected by this
+						software. For most applications, this would also usually be your network administrator.<br />
+						<br />
+<!-- VER2 - this is for phpmailer
+						To ease the complexity of installation, this software uses the web server running it to send
+						all generated emails. This reduces the amount of information necessary to get a working installation,
+						but at the expense of having those communications possibly delayed and/or sent to the recipients
+						spam folder. Alternatively, the "Alternate Email Settings" option can be used to alleviate these
+						issues and route email through an actual email server, but obviously requires more knowledge and
+						configuration of other services. If you are unsure, select "No".<br />
+-->
+						This software comes with an administrator account to perform initial configuration, as well as
+						any administrative tasks that are not accessible by others. Instead of using a generic default
+						value, which may not get changed and leave a security hole, the "Admin Password" field allows you
+						to set the password for this account so you know exactly what to use to login.<br />
+						<br />
+						There are two modes that the user interface can use to make it easier for employees to operate.
+						If you operate a home or small office, you should probably select the "Professional" interface as
+						it will minimize the available options to reduce clutter. Alternatively, if this will be used by a
+						medium-sized or enterprise organization where employees spend most, or all, of their working hours
+						interacting with this software, you should probably select "Enterprise" since it will keep all
+						available options displayed at all times. This parameter can be changed at any time.<br />
+						<br />
+						By default this software will operate as a company management software (CMS), known as webBooks,
+						so that businesses can keep track of their various data, tasks, and employees. Alternatively, this
+						software can also work without the need to keep track of business activities and act as a project
+						framework, known as webWorks. This functionality can be changed at any time by (un)installing the
+						"Business Management" module.<br />
+						<br />
+						There are two trailing options in this section. The first one is requesting the use of captchas,
+						which will provide a basic level of complexity to certain functions in this software. For those
+						who are unfamiliar with captchas, they are the strings of random text, usually 6 characters or so,
+						that you must enter before proceeding in some sort of process (e.g. account creation). If you are
+						unsure, select "Yes".<br />
+						<br />
+						The final option is related to how this software operates. Most small businessess would select 'No'
+						here as they would only have their single business to run. This option is geared towards medium and
+						large-sized businesses that would need multiple instances (one per business) of this software. In
+						addition to that, this option also allows for monetary charging per instance, enabling a company to
+						host access for a fee. If you are unsure, select "No".
+					    </p>
+					<li><label>Alert Name</label><input type="textbox" id="sAlertName" class="textbox" placeholder="webBooks Alert" maxlength='128' title="The name associated with automated system messages" onBlur="validate(this,null,'![=<>;]','System Email Name',1);" />
+					<li class="liSub"><label>Email Address</label><input type="textbox" id="sAlertEmail" class="textbox" placeholder="noreply@mydomain.com" maxlength='128' title="The email address associated with automated system messages" onBlur="validate(this,null,'[^a-zA-Z0-9_\.@\-]','System Email Address',1);" />
+					<li><label>Support Name</label><input type="textbox" id="sSupportName" class="textbox" placeholder="Support Team" maxlength='128' title="The person's name who will receive technical automated system messages" onBlur="validate(this,null,'![=<>;]','Support Email Name',1);" />
+					<li class="liSub"><label>Email Address</label><input type="textbox" id="sSupportEmail" class="textbox" placeholder="support@mydomain.com" maxlength='128' title="The email address for who will receive technical automated system messages" onBlur="validate(this,null,'[^a-zA-Z0-9_\.@\-]','Support Email Address',1);" />
+					<li><label>Security Name</label><input type="textbox" id="sSecurityName" class="textbox" placeholder="Security Team" maxlength='128' title="The person's name who will receive security-related automated system messages" onBlur="validate(this,null,'![=<>;]','Security Email Name',1);" />
+					<li class="liSub"><label>Email Address</label><input type="textbox" id="sSecurityEmail" class="textbox" placeholder="security@mydomains.com" maxlength='128' title="The email address for who will receive security-related automated system messages" onBlur="validate(this,null,'[^a-zA-Z0-9_\.@\-]','Security Email Address',1);" />
+<!-- VER2 - this implements phpmailer
+					<li><label>Alternate Email Settings</label><select id="sEmailSettings" size="1" class="combobox OTCombobox" title="Use alternate email settings with this software" onChange="$('.liEmail').toggle('slow');"><option value="true">Yes</option><option value="false" selected>No</option></select>
+					<li class="liSub liEmail"><label>Server</label><input type="textbox" id="sEmailServer" class="textbox" placeholder="smtp.mydomain.com" maxlength="128" title="The URI of the email server" onBlur="validate(this,null,'[^a-zA-Z0-9:\/%_\.\-]','Server',1);" />
+					<li class="liSub liEmail"><label>Port</label><input type="textbox" id="nEmailPort" class="textbox OTTextbox" placeholder="587" maxlength="5" title="The port number used to communicate with the email server" onBlur="validate(this,null,'[^0-9]','Port',1);" />
+					<li class="liSub liEmail"><label>Security</label><select id="sEmailSecurity" size="1" class="combobox OTCombobox" title="Which security setting to use with the email server"><option value="none" selected>None</option><option value="ssl">SSL</option><option value="ssl">TLS</option></select>
+					<li class="liSub liEmail"><label>Authenticate</label><select id="bEmailAuth" size="1" class="combobox OTCombobox" title="Enable account authentication with the email server"><option value="true" selected>Yes</option><option value="false">No</option></select>
+					<li class="liSub liEmail"><label>Username</label><input type="textbox" id="sEmailUsername" class="textbox" placeholder="user@mydomain.com" maxlength='128' title="The username to authenticate with the email server" onBlur="validate(this,null,'[^a-zA-Z0-9@\._\-]','Username',1);" />
+					<li class="liSub liEmail"><label>Password</label><input type="password" id="sEmailPassword" class="textbox" maxlength="24" title="The password to authenticate with the email server" />
+-->
+					<li>&nbsp;
+					<li><label>Admin Password</label><input type="password" id="sAdminPassword" class="textbox" maxlength="32" title="The password to use for the administrators account" /><img src="imgs/default/help.png" class="toggle" onClick="Security('TogglePassword','sAdminPassword')" title="Toggles the visibility of the password" />
+					<li>&nbsp;
+					<li><label>Look and Feel</label><select id="sInterface" size="1" class="combobox" title="Select how the interface should operate"><option value="pro" selected>Professional</option><option value="ent">Enterprise</option></select>
+					<li><label>Mode of Operation</label><select id="sOperation" size="1" class="combobox" title="Select the operation method for the software"><option value="app" selected>Company Management (webBooks)</option><option value="fw">Project Framework (webWorks)</option></select>
+					<li>&nbsp;
+					<li><label>Enable the use of captchas</label><select id="bUseCaptchas" size="1" class="combobox OTCombobox" title="Enable the use of captchas with the software"><option value="true" selected>Yes</option><option value="false">No</option></select>
+					<li><label>Allow multiple instances</label><select id="bHostedService" size="1" class="combobox" title="Configure the software to use single or multiple instances"><option value="false" selected>No, this will only be for a single company</option><option value="true">Yes, this will need to host multiple instances</option></select>
+					<li>&nbsp;
+					<li><h1><img src="imgs/default/help.png" onClick="$('#liServer').toggle('slow');" />Server</h1>
+					<li id='liServer'><p>
+						This section deals with the database server and the table names within the database itself. The
+						first set of options need to point to the SQL Server (which is usually "localhost"), the
+						name of the database that is going to store your data (any value will suffice, but
+						should provide some form of identification), and the login credentials of the two accounts with
+						read-only ("R/O") and read-write ("R/W") access to the database.  The SQL server, database, and
+						user accounts will need to be accessible before continuing with the setup. This information is
+						usually provided by your network administrator.<br />
+						<br />
+						The last field involves the manipulation of the database table names. Usually this can be left
+						blank, but could be useful in situations where data within an existing database needs to remain
+						untouched. Instances can include sectioning webBooks data every X number of years, data comparison
+						for auditing or forensic inspection, one database for multiple businesses, and more!
+					    </p>
+					<li><label>SQL Server</label><input type="textbox" id="sSQLServer" class="textbox" placeholder='localhost' maxlength="128" title="The full URI for the SQL server" onBlur="validate(this,null,'[^a-zA-Z0-9:\/%_\.\-]','SQL Server',1);" />
+					<li><label>Database Name</label><input type="textbox" id="sDatabaseName" class="textbox" placeholder='webBooks_YYYY-MM-DD' maxlength="24" title="The name of the database storing the data" onBlur="validate(this,null,'[^a-zA-Z0-9_\-]','Database Name',1);" />
+					<li><label>R/O Username</label><input type="textbox" id="sROUsername" class="textbox" placeholder='admin' maxlength='32' title="The username with read-only access to the database" onBlur="validate(this,null,'[^a-zA-Z0-9@\._\-]','R/O Username',1);" />
+					<li><label>R/O Password</label><input type="password" id="sROPassword" class="textbox" maxlength="32" title="The password for read-only access to the database" /><img src="imgs/default/help.png" class="toggle" onClick="Security('TogglePassword','sROPassword')" title="Toggles the visibility of the password" />
+					<li><label>R/W Username</label><input type="textbox" id="sRWUsername" class="textbox" placeholder='admin' maxlength='32' title="The username with read-write access to the database" onBlur="validate(this,null,'[^a-zA-Z0-9@\._\-]','R/W Username',1);" />
+					<li><label>R/W Password</label><input type="password" id="sRWPassword" class="textbox" maxlength="32" title="The password for read-write access to the database" /><img src="imgs/default/help.png" class="toggle" onClick="Security('TogglePassword','sRWPassword')" title="Toggles the visibility of the password" />
+					<li><label>Table Prefix</label><input type="textbox" id="sTablePrefix" class="textbox" maxlength="16" title="An optional prefix to apply to the database table names" onBlur="validate(this,null,'[^a-zA-Z0-9_\-]','Table Prefix',1);" />
+					<li>&nbsp;
+					<li><h1><img src="imgs/default/help.png" onClick="$('#liMappings').toggle('slow');" />Authentication</h1>
+					<li id='liMappings'><p>
+						This section deals with the integration of employee authentication into webBooks, allowing it
+						to work with other software to validate, in real-time, the credentials of your employees instead of
+						using the built-in mechanisms. This means you can authenticate using webdav, LDAP, Microsoft Active
+						Directory, an existing custom-built application, and more! Anything that can be utilized with php,
+						you have the flexibility in which to work. If you are unsure about these fields, leave them blank.<br />
+						<br />
+						The below fields are available to easily use the account credentials stored in an existing SQL
+						database, however, that software <u>must</u> store the passwords in the format that webBooks uses.
+						To implement, simply fill in the existing database table name (using the database credentials
+						submitted in the previous section), along with the column names associated with the unique ID,
+						username, and password of the employees.<br />
+						<br />
+						For any other application, webBooks provides the ability to use two php functions in the file
+						"data/auth.php". That script should contain two functions which will be called during the
+						authentication steps of this software. The first function, "UID=status(username)", is used to check
+						the status of the account seeking entry, such as if the account is locked or not, and should return
+						"0" upon encountering any issue preventing the user from proceeding, or the unique ID of the user's
+						account otherwise. The second function called in this process is "authenticate(UID, username, password)"
+						which should return a simple true/false value based on the supplied credentials.<br />
+						<br />
+						For more information, please visit our online
+						<a href="http://wiki.cliquesoft.org/index.php?title=webBooks#Installation">wiki</a>.<br />
+						<br />
+						NOTES:<br />
+						- This authenticates employees, not customers!<br />
+						- The assigned service will be primarily used for authentication.<br />
+						- webBooks cached credentials will be used for offline authentication.<br />
+						- For security, webBooks will still manage it's own account locking to prevent brute force attacks.<br />
+					    </p>
+					<li><label>Table Name</label><input type="textbox" id="sTableName" class="textbox" maxlength="32" title="The optional name of an existing database table containing your employee accounts" onBlur="validate(this,null,'[^a-zA-Z0-9_\-]','Table Name',1);" />
+					<li><label>ID Column</label><input type="textbox" id="sUIDColumn" class="textbox" maxlength="32" title="The optional database field name containing the primary keys of employees" onBlur="validate(this,null,'[^a-zA-Z0-9_\-]','ID Column',1);" />
+					<li><label>Username Column</label><input type="textbox" id="sUsernameColumn" class="textbox" maxlength="32" title="The optional database field name containing the usernames of employees" onBlur="validate(this,null,'[^a-zA-Z0-9_\-]','Username Column',1);" />
+					<li><label>Password Column</label><input type="textbox" id="sPasswordColumn" class="textbox" maxlength="32" title="The optional database field name containing the passwords of employees" />
+					<li>&nbsp;
+					<li><h1><img src="imgs/default/help.png" onClick="$('#liMigration').toggle('slow');" />Migration</h1>
+					<li id='liMigration'><p>
+						The below two options can be used to retain prior application configuration and company data if desired.
+						Simply check all applicable options for retention of that information and it will be preserved during
+						the installation process.
+					    </p>
+					<li><label>Config files already exist</label><select id="bExistingConfigs" size="1" class="combobox OTCombobox" title="Specifies if the config files already exist from a prior install"><option value="true">Yes</option><option value="false" selected>No</option></select>
+					<li><label>Database already has contents</label><select id="bExistingDatabase" size="1" class="combobox OTCombobox" title="Specifies if the database already exist from a prior install"><option value="true">Yes</option><option value="false" selected>No</option></select>
+					<li>&nbsp;
+					<li><input type='button' id='oInstall' value='install' class='button' title="Install the software using the above values" onClick="Setup(this.value);" />
+					<li>&nbsp;
+				</ul>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+</html>

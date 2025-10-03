@@ -1,0 +1,34 @@
+/* Contact Others */
+#divPopup #formContact .textbox { width: 194px; }
+#divPopup #formContact #sCaptcha { margin-right: 4px; width: 100px; text-align: center; }
+#divPopup #formContact #oRefresh { margin-right: 4px; padding: 2px; width: 20px; height: 22px; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.3em; vertical-align: top; }
+#divPopup #formContact #oRefresh:hover { border: 1px solid rgba(0,0,0,0.4); cursor: pointer; }
+#divPopup #formContact #oSend { width: 60px; }
+#divPopup #formContact #oCaptcha {											/* unknown application */
+	border: 1px solid #8eb4f2;	/* #6FCEF4 */
+	border-radius: 0.3em;
+/*
+	box-shadow: 0 0 8px rgba(0,0,0,0.5);
+	-ms-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+*/
+}
+
+
+/* Contact Us */
+#divContact #ulContact { width: 312px; }
+#divContact #ulContact .button { width: 70px; }
+#divContact #ulContact .textbox { width: 300px; }
+#divContact #ulContact .listbox { width: 308px; }
+#divContact #ulContact .textarea { width: 306px; }
+#divContact #ulContact li { margin: 7px 0; text-align: right; }
+#divContact #ulContact li label { float: left; font-weight: bold; }
+#divContact #ulContact li label span { font-size: 10px; cursor: pointer; }
+#divContact #ulContact li:last-child label { display: inline-block; width: 300px; text-align: left; }
+#divContact #ulContact #sCaptcha { margin-right: 8px; width: 188px; }
+#divContact #ulContact #oCaptcha { display: inline-block; margin-right: 8px; padding: 2px; width: 20px; height: 20px; cursor: pointer; vertical-align: top; background-color: rgba(0,0,0,0.2); border: 1px solid #396AA4; }
+#divContact #divList { float: right; margin-left: 20px; width: 232px; }
+#divContact #divList ul { margin: 0 0 12px; padding: 0 10px; width: 212px; text-align: center; }
+#divContact #formMail #captcha1 { margin: 0 0 0 14px; width: 206px; height: 70px; border: 1px solid #396AA4; }		/* unknown application */
+

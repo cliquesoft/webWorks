@@ -1,0 +1,64 @@
+#divPopup .gallery {			/* https://stackoverflow.com/questions/7273338/how-to-vertically-align-an-image-inside-a-div */
+	max-height: 100%;  
+	max-width: 100%; 
+	width: auto;
+	height: auto;
+	position: absolute;  
+	top: 0;  
+	bottom: 0;  
+	left: 0;  
+	right: 0;  
+	margin: auto;
+}
+
+
+
+
+/* Gallery Admin */
+
+#divGalleryControls { margin: 20px 0 80px; text-align: center; }
+#divGalleryControls .textbox { margin: 0 10px; }
+#divGalleryControls .button { padding-left: 10px; padding-right: 10px; }
+#divGalleryControls #btnImplement { margin-left: 30px; }
+
+#divGalleryListing { width: 100%; overflow: auto; }
+#divGalleryListing .ulGalleryGroupPriority { border-bottom: 1px solid rgba(0,0,0,0.2); }
+#divGalleryListing .ulGalleryGroup {
+	margin-bottom: 40px;
+	width: calc(100% - 2px);
+	min-height: 70px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.4);
+}
+#divGalleryListing .ulGalleryGroup li.title {
+	font-weight: bold;
+	font-size: 24px;
+	background-color: rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+#divGalleryListing .ulGalleryGroup li.title img { float: right; margin: 4px; opacity: 0.4; cursor: pointer; }
+#divGalleryListing .ulGalleryGroup li.title img:hover { opacity: 1; }
+#divGalleryListing .ulGalleryGroup li.image {
+	position: relative;
+	display: inline-block;
+	margin: 10px;
+	width: 138px;
+	height: 160px;
+	background-color: rgba(255,255,255,0.4);
+	border: 1px solid rgba(0,0,0,0.5);
+	vertical-align: text-top;
+}
+#divGalleryListing .ulGalleryGroup li.image img { margin: 4px; max-width: 128px; max-height: 128px; }
+#divGalleryListing .ulGalleryGroup li.image .listbox {
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+	width: calc(100% - 4px);
+}
+/* https://stackoverflow.com/questions/7208786/how-to-style-the-option-of-an-html-select-element */
+#divGalleryListing .ulGalleryGroup li.image .listbox optgroup { color: #999; }
+#divGalleryListing .ulGalleryGroup li.image .listbox option { padding-left: 15px; color: #fff; }
+
+#divGalleryListing #ulGallery { margin-bottom: 0; }
+

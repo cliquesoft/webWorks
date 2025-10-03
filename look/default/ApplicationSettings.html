@@ -1,0 +1,313 @@
+	<h1>Application Settings</h1>
+	<ul id='ulButtons_ApplicationSettings' class='buttons fright'>
+		<li><input type='button' value='Save' class='button' onClick="ApplicationSettings('SaveSettings',null,this);" />
+	</ul>
+
+	<ul id='ulTabs_ApplicationSettings' class='tabs'>
+		<li class='liTab' rel='divTabs_ApplicationSettings0' onClick="Module('navigate',null,this,'divTabs_ApplicationSettings','https://wiki.cliquesoft.org/index.php?title=webBooks-System_Configuration','ulButtons_ApplicationSettings');" title='Help'>?
+		<li class='liTab liSel' rel='divTabs_ApplicationSettings1' onClick="Module('navigate',null,this,'divTabs_ApplicationSettings',null,'ulButtons_ApplicationSettings','Save',&quot;ApplicationSettings('SaveSettings',null,this);&quot;);">General
+		<li class='liTab' rel='divTabs_ApplicationSettings2' onClick="Module('navigate',null,this,'divTabs_ApplicationSettings',null,'ulButtons_ApplicationSettings');">Modules
+		<li class='liTab' rel='divTabs_ApplicationSettings3' onClick="Module('navigate',null,this,'divTabs_ApplicationSettings',null,'ulButtons_ApplicationSettings');">Groups
+		<li class='liTab' rel='divTabs_ApplicationSettings4' onClick="Module('navigate',null,this,'divTabs_ApplicationSettings',null,'ulButtons_ApplicationSettings');">Logs
+		<li class='liTab' rel='divTabs_ApplicationSettings5' id='liHosted_ApplicationSettings' onClick="Module('navigate',null,this,'divTabs_ApplicationSettings',null,'ulButtons_ApplicationSettings');">Hosted
+	</ul>
+
+
+	<div id='divTabs_ApplicationSettings0' class='Body'>
+		<iframe id='ifUriSocial_ApplicationSettings' src="about:blank" onLoad="document.body.style.cursor='default';"></iframe>
+	</div>
+
+
+	<div id='divTabs_ApplicationSettings1' class='Body'>
+		<form id='formConfig_ApplicationSettings' action=''>
+		<ul class='ulCol'>
+			<li><label>Enable maintenance mode</label><select id="bMaintenance_ApplicationSettings" size="1" class="combobox OTCombobox" title="Enable the maintenance mode of the software"><option value="true">Yes</option><option value="false" selected>No</option></select>
+			<li><label>Maintenance message</label><input type="textbox" id="sMaintenance_ApplicationSettings" class="textbox OFTextbox" maxlength='128' title="The maintenance message displayed to users" onBlur="Security('Validate',this,'!=<>;\'','Maintenance Message');" />
+			<li>&nbsp;
+			<li><label>Alerts Name</label><input type="textbox" id="sAlertsName_ApplicationSettings" class="textbox OFTextbox" placeholder="webBooks Alert" maxlength='32' title="The name associated with automated system messages" onBlur="Security('Validate',this,'!=<>;\'','Alerts Name');" />
+			<li class="liSub"><label>Email Address</label><input type="textbox" id="sAlertsEmail_ApplicationSettings" class="textbox OFTextbox" placeholder="noreply@mydomain.com" maxlength='128' title="The email address associated with automated system messages" onBlur="Security('Validate',this,'a-zA-Z0-9_\.@\-','Alerts Email Address');" />
+			<li><label>Support Name</label><input type="textbox" id="sSupportName_ApplicationSettings" class="textbox OFTextbox" placeholder="Support Team" maxlength='32' title="The person's name who will receive technical automated system messages" onBlur="Security('Validate',this,'!=<>;\'','Support Name');" />
+			<li class="liSub"><label>Email Address</label><input type="textbox" id="sSupportEmail_ApplicationSettings" class="textbox OFTextbox" placeholder="support@mydomain.com" maxlength='128' title="The email address for who will receive technical automated system messages" onBlur="Security('Validate',this,'a-zA-Z0-9_\.@\-','Support Email Address');" />
+			<li><label>Security Name</label><input type="textbox" id="sSecurityName_ApplicationSettings" class="textbox OFTextbox" placeholder="Security Team" maxlength='32' title="The person's name who will receive security-related automated system messages" onBlur="Security('Validate',this,'!=<>;\'','Security Name');" />
+			<li class="liSub"><label>Email Address</label><input type="textbox" id="sSecurityEmail_ApplicationSettings" class="textbox OFTextbox" placeholder="security@mydomains.com" maxlength='128' title="The email address for who will receive security-related automated system messages" onBlur="Security('Validate',this,'a-zA-Z0-9_\.@\-','Security Email Address');" />
+			<li>&nbsp;
+			<li><label>Look and Feel</label><select id="sInterface_ApplicationSettings" size="1" class="combobox OFCombobox" title="Select how the interface should operate"><option value="pro" selected>Professional</option><option value="ent">Enterprise</option></select>
+			<li><label>Multiple instances</label><select id="bHostedService_ApplicationSettings" size="1" class="combobox OFCombobox" title="Configure the software to use single or multiple instances"><option value="false" selected>No, used for a single company</option><option value="true">Yes, host multiple instances</option></select>
+			<li><label>Enable captchas</label><select id="bUseCaptchas_ApplicationSettings" size="1" class="combobox OTCombobox" title="Enable the use of captchas with the software"><option value="true" selected>Yes</option><option value="false">No</option></select>
+			<li><label>Failed logins &amp; timeout</label><input type="textbox" id="nFailedAuth_ApplicationSettings" class="textbox OHTextbox" maxlength='2' title="How many failed login attempts trigger account locking" onBlur="Security('Validate',this,'0-9','Failed Logins');" /><input type="textbox" id="nTimeout_ApplicationSettings" class="textbox OHTextbox space" maxlength='5' title="Number of inactivity seconds to timeout a session" onBlur="Security('Validate',this,'0-9','Timeout');" />
+			<li><label>Updating &amp; Installation</label><select id="sUpdates_ApplicationSettings" size="1" class="listbox OHCombobox">
+				<option value='automatic'>Automatic</option>
+				<option value='manual'>Manual</option>
+			    </select><select id="sInstall_ApplicationSettings" size="1" class="listbox OHCombobox space">
+				<option value='automatic'>Automatic</option>
+				<option value='manual'>Manual</option>
+			    </select>
+			<li>&nbsp;
+
+<!-- LEFT OFF - get these to align; add in 3/4, 2/3, and div's; make sure all heights match too
+			<li><label>FULL TEXT</label><input type="textbox" class="textbox OFTextbox" />
+			<li><label>FULL LIST</label><select size="1" class="listbox OFListbox"></select>
+			<li><label>FULL BTN</label><input type="button" value="button" class="button OFButton" />
+			<li><label>HALF TEXT</label><input type="textbox" class="textbox OHTextbox" /><input type="textbox" class="textbox OHTextbox space" />
+			<li><label>HALF LIST</label><select size="1" class="listbox OHListbox"></select><select size="1" class="listbox OHListbox space"></select>
+			<li><label>HALF BTN</label><input type="button" value="button" class="button OHButton" /><input type="button" value="button" class="button OHButton space" />
+			<li><label>THIRD TEXT</label><input type="textbox" class="textbox OTTextbox" /><input type="textbox" class="textbox OTTextbox space" /><input type="textbox" class="textbox OTTextbox space" />
+			<li><label>THIRD LIST</label><select size="1" class="listbox OTListbox"></select><select size="1" class="listbox OTListbox space"></select><select size="1" class="listbox OTListbox space"></select>
+			<li><label>THIRD BTN</label><input type="button" value="button" class="button OTButton" /><input type="button" value="button" class="button OTButton space" /><input type="button" value="button" class="button OTButton space" />
+			<li><label>FOURTH TEXT</label><input type="textbox" class="textbox OQTextbox" /><input type="textbox" class="textbox OQTextbox space" /><input type="textbox" class="textbox OQTextbox space" /><input type="textbox" class="textbox OQTextbox space" />
+			<li><label>FOURTH LIST</label><select size="1" class="listbox OQListbox"></select><select size="1" class="listbox OQListbox space"></select><select size="1" class="listbox OQListbox space"></select><select size="1" class="listbox OQListbox space"></select>
+			<li><label>FOURTH BTN</label><input type="button" value="button" class="button OQButton" /><input type="button" value="button" class="button OQButton space" /><input type="button" value="button" class="button OQButton space" /><input type="button" value="button" class="button OQButton space" />
+ -->
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Project URI</label><input type="textbox" id="sUriProject_ApplicationSettings" class="textbox OFTextbox" placeholder="https://mydomain.com/wb" maxlength='128' title="The URI to access this software" onBlur="Security('Validate',this,'a-zA-Z0-9:\/%_\.\-','Project URI');" />
+			<li><label>Payment URI</label><input type="textbox" id="sUriPayment_ApplicationSettings" class="textbox OFTextbox" placeholder="https://paypal.com" maxlength='128' title="The URI to process online payments" onBlur="Security('Validate',this,'a-zA-Z0-9:\/%_\.\-','Payment URI');" />
+			<li><label>Social URI</label><input type="textbox" id="sUriSocial_ApplicationSettings" class="textbox OFTextbox" placeholder="https://gmail.com" maxlength='128' title="The URI of the software you use for social interaction" onBlur="Security('Validate',this,'a-zA-Z0-9:\/%_\.\-','Social URI');" />
+			<li>&nbsp;
+			<li><label>Email log</label><input type="textbox" id="sLogEmail_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The log storing the status of all automated email sent" onBlur="Security('Validate',this,'!=<>;\'','Email Log');" />
+			<li><label>Script log</label><input type="textbox" id="sLogScript_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The log storing information related to each script" onBlur="Security('Validate',this,'!=<>;\'','Script Log');" />
+			<li><label>Module log</label><input type="textbox" id="sLogModule_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The log storing information related to the module" onBlur="Security('Validate',this,'!=<>;\'','Module Log');" />
+			<li><label>Project log</label><input type="textbox" id="sLogProject_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The log storing information related to the project" onBlur="Security('Validate',this,'!=<>;\'','Project Log');" />
+			<li>&nbsp;
+			<li><label>Temp Directory</label><input type="textbox" id="sDirTemp_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The directory containing any temporary files generated by the application" onBlur="Security('Validate',this,'!=<>;\/\'','Temp Directory');" />
+			<li><label>Data Directory</label><input type="textbox" id="sDirData_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The directory where all data for the application will be stored" onBlur="Security('Validate',this,'!=<>;\/\'','Data Directory');" />
+			<li><label class='lblSub'>Cron Directory</label><input type="textbox" id="sDirCron_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The directory containing cron jobs for the application" onBlur="Security('Validate',this,'!=<>;\/\'','Cron Directory');" />
+			<li><label class='lblSub'>Logs Directory</label><input type="textbox" id="sDirLogs_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The directory containing the logs of the application" onBlur="Security('Validate',this,'!=<>;\/\'','Logs Directory');" />
+			<li><label class='lblSub'>Mail Directory</label><input type="textbox" id="sDirMail_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The directory where the mail logs will be stored" onBlur="Security('Validate',this,'!=<>;\/\'','Mail Directory');" />
+			<li><label class='lblSub'>Verify Directory</label><input type="textbox" id="sDirVrfy_ApplicationSettings" class="textbox OFTextbox" maxlength='64' title="The directory where account verification scripts will be stored" onBlur="Security('Validate',this,'!=<>;\/\'','Verify Directory');" />
+			<li>&nbsp;
+
+<!-- REMOVED 2025/03/01 - deprecated
+	NOTE: the below is for remote printing (e.g. at the Altoona headquarters when I live in Miami), otherwise the user can print locally
+			<li><label>Available printers</label><input type="textbox" id="sPrinterDesc_ApplicationSettings" placeholder='Descriptive Name' maxlength="64" class="textbox OFTextbox disabled" disabled onBlur="Security('Validate',this,'!=<>;','Printer Description');" />
+			<li><span class='fleft'><input type="button" id="btnPrinterAdd_ApplicationSettings" value="+" class="button OEButton disabled" disabled /><input type="button" id="btnPrinterDel_ApplicationSettings" value="-" class="button OEButton space disabled" disabled /><input type="button" id="btnPrinterUpdate_ApplicationSettings" value="Update" class="button OTButton space disabled" disabled /></span><input type="textbox" id="sPrinterIP_ApplicationSettings" placeholder='IP Address' maxlength="15" class="textbox OFTextbox disabled" disabled onBlur="Security('Validate',this,'0-9\.','Printer IP Address');" />
+			<li><select id="sPrinterList_ApplicationSettings" size="2" class="combobox OFCombobox disabled" disabled></select>
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+-->
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Company data</label><input type="button" id="objDataExport_ApplicationSettings" value="Export" class="button OTButton disabled" disabled onClick="ApplicationSettings('ExportDatabase');" /><input type="button" id="objDataImport_ApplicationSettings" value="Import" class="button OTButton space disabled" disabled onClick="ApplicationSettings('ToggleImport');" /><input type="button" id="objDataArchive_ApplicationSettings" value="Archive" class="button OTButton space disabled" disabled onClick="ApplicationSettings('ToggleArchive',null,event);" /><input type='hidden' id='eArchive_ApplicationSettings' value='' />
+			<li><label>SQL Server</label><input type="textbox" id="DB_HOST_ApplicationSettings" class="textbox OFTextbox" placeholder='localhost' maxlength="128" title="The full URI for the SQL server" onBlur="Security('Validate',this,'a-zA-Z0-9:\/%_\.\-','SQL Server');" />
+			<li><label class='lblSub'>Database Name</label><input type="textbox" id="DB_NAME_ApplicationSettings" class="textbox OFTextbox" placeholder='webBooks_YYYY-MM-DD' maxlength="24" title="The name of the database storing the data" onBlur="Security('Validate',this,'a-zA-Z0-9_\-','Database Name');" />
+			<li><label class='lblSub'>R/O Username</label><input type="textbox" id="DB_ROUN_ApplicationSettings" class="textbox OFTextbox" placeholder='admin' maxlength='32' title="The username with read-only access to the database" onBlur="Security('Validate',this,'a-zA-Z0-9@\._\-','R/O Username');" />
+			<li><label class='lblSub'>R/O Password</label><input type="password" id="DB_ROPW_ApplicationSettings" class="textbox OFTextbox" maxlength="32" title="The password for read-only access to the database" /><img src="imgs/default/help.png" class="toggle" onClick="Security('TogglePassword','sROPassword')" title="Toggles the visibility of the password" />
+			<li><label class='lblSub'>R/W Username</label><input type="textbox" id="DB_RWUN_ApplicationSettings" class="textbox OFTextbox" placeholder='admin' maxlength='32' title="The username with read-write access to the database" onBlur="Security('Validate',this,'a-zA-Z0-9@\._\-','R/W Username');" />
+			<li><label class='lblSub'>R/W Password</label><input type="password" id="DB_RWPW_ApplicationSettings" class="textbox OFTextbox" maxlength="32" title="The password for read-write access to the database" /><img src="imgs/default/help.png" class="toggle" onClick="Security('TogglePassword','sRWPassword')" title="Toggles the visibility of the password" />
+			<li><label class='lblSub'>Table Prefix</label><input type="textbox" id="DB_PRFX_ApplicationSettings" class="textbox OFTextbox" maxlength="16" title="An optional prefix to apply to the database table names" onBlur="Security('Validate',this,'a-zA-Z0-9_\-','Table Prefix');" />
+			<li>&nbsp;
+			<li><label>Table Name</label><input type="textbox" id="AUTH_TB_ApplicationSettings" class="textbox OFTextbox" maxlength="32" title="The optional name of an existing database table containing your employee accounts" onBlur="Security('Validate',this,'a-zA-Z0-9_\-','Table Name');" />
+			<li><label class='lblSub'>ID Column</label><input type="textbox" id="AUTH_ID_ApplicationSettings" class="textbox OFTextbox" maxlength="32" title="The optional database field name containing the primary keys of employees" onBlur="Security('Validate',this,'a-zA-Z0-9_\-','ID Column');" />
+			<li><label class='lblSub'>Username Column</label><input type="textbox" id="AUTH_UN_ApplicationSettings" class="textbox OFTextbox" maxlength="32" title="The optional database field name containing the usernames of employees" onBlur="Security('Validate',this,'a-zA-Z0-9_\-','Username Column');" />
+			<li><label class='lblSub'>Password Column</label><input type="textbox" id="AUTH_PW_ApplicationSettings" class="textbox OFTextbox" maxlength="32" title="The optional database field name containing the passwords of employees" onBlur="Security('Validate',this,'a-zA-Z0-9_\-','Password Column');" />
+<!-- LEFT OFF - turn this into a 2 row filedrop -->
+			<li><label class='lblSub'>Script Upload</label><input type="textbox" id="sScriptUpload_ApplicationSettings" class="textbox OFTextbox disabled" disabled title="The script to upload that allows authentication with 3rd party services" />
+			<li>&nbsp;
+
+
+<!-- REMOVED 2025/03/01 - deprecated
+			<li>&nbsp;
+			<li><label>System admin</label><select id="sAdminType_ApplicationSettings" size="1" class="listbox OFListbox" onChange="loadAdmins_ApplicationSettings('req');">
+				<option value='employee'>Current Employee</option>
+				<option value='provider'>Service Provider</option>
+				<option value='vendor'>Vendor</option>
+			    </select>
+			<li><label class='lblSub'>Name</label><select id="nAdminList_ApplicationSettings" size="1" class="listbox OFListbox" onChange="loadAdmin_ApplicationSettings('req');"></select>
+			<li><label class='lblSub'>Email</label><input type='textbox' id='sAdminEmail_ApplicationSettings' maxlength='128' class="textbox OFTextbox" onFocus="alert('Please note that this field is non-editable.');" />
+			<li><label class='lblSub'>Phone &amp; Extension</label><input type='textbox' id='nAdminWorkPhone_ApplicationSettings' maxlength='15' class="textbox OHTextbox" onFocus="alert('Please note that this field is non-editable.');" /><input type='textbox' id='nAdminWorkExt_ApplicationSettings' maxlength='7' class="textbox OHTextbox space" onFocus="alert('Please note that this field is non-editable.');" />
+			<li><label class='lblSub'>Mobile phone</label><input type='textbox' id='nAdminMobilePhone_ApplicationSettings' maxlength='15' class="textbox OHTextbox" onFocus="alert('Please note that this field is non-editable.');" /><input type="checkbox" id="bAdminMobileSMS_ApplicationSettings" /><label class='fnone' onClick="document.getElementById('bAdminMobileSMS_ApplicationSettings').click();">SMS</label><input type="checkbox" id="bAdminMobileEmail_ApplicationSettings" /><label class='fnone' onClick="document.getElementById('bAdminMobileEmail_ApplicationSettings').click();">Mail</label>
+			<li>&nbsp;
+			<li><label>Social URI</label><input type="textbox" id="sSocialURI_ApplicationSettings" placeholder='http://' maxlength="128" class="textbox OFTextbox" onBlur="Security('Validate',this,'a-zA-Z0-9:\/%_\.\-','Social URI');" />
+			<li>&nbsp;
+			<li><label>Data directory</label><input type="textbox" id="sDataDir_ApplicationSettings" maxlength="64" class="textbox OFTextbox" onBlur="Security('Validate',this,'!=<>;','Data Directory');" />
+			<li><label>Logs directory</label><input type="textbox" id="sLogsDir_ApplicationSettings" maxlength="64" class="textbox OFTextbox" onBlur="Security('Validate',this,'!=<>;','Logs Directory');" />
+			<li><label>Cron directory</label><input type="textbox" id="sCronDir_ApplicationSettings" maxlength="64" class="textbox OFTextbox" onBlur="Security('Validate',this,'!=<>;','Cron Directory');" />
+			<li><label>Temp directory</label><input type="textbox" id="sTempDir_ApplicationSettings" maxlength="64" class="textbox OFTextbox" onBlur="Security('Validate',this,'!=<>;','Temp Directory');" />
+			<li>&nbsp;
+-->
+		</ul>
+		</form>
+
+<!-- LEFT OFF - pull the css out below -->
+		<div id='divImportDrop_ApplicationSettings' class="dropbox" onClick="nFiledropUpload=1; this.getElementsByClassName('fd-file')[0].click()">	<!-- NOTE: since the generated <file> is hidden, the onClick here triggers to upload -->
+			<span class="message">To upload, click this box or drag-and-drop files here from your file manager.</span>
+			<!-- NOTE: we only need 1 upload at a time	<div class="multiple"><input type="checkbox" id="multiple" title="Checking this box will enable multiple file selections when uploading" onClick="if(event.stopPropagation){event.stopPropagation();} event.cancelBubble=true;" /></div> -->
+			<span class='oHashes'></span>
+		</div>
+	</div>
+
+
+	<div id='divTabs_ApplicationSettings2' class='Body'>
+		<ul class='ulCol'>
+<!--
+'Module updating' is how webBooks will obtain updates to the modules
+'Install method' is how webBooks will install the updates once the module updates have been downloaded
+	NOTE: this is similar to how MS Windows handles its own updates
+-->
+			<li><label>Manual updating</label><input type="button" id="objDownloadUpdates_ApplicationSettings" value="Download" class="button OHButton disabled" disabled title="Checks and obtains any available updates for your installation" onClick="ApplicationSettings('DownloadUpdates');" /><input type="button" id="objInstallUpdates_ApplicationSettings" name="objInstallUpdates_ApplicationSettings[]" value="Install" class="button OHButton space disabled" disabled title="Installs the selected updates" onClick="ApplicationSettings('InstallUpdates');" />
+			<li><label class='lblSub'>Available updates</label><select id="sUpdatesList_ApplicationSettings" size="2" multiple class="combobox OFCombobox disabled" disabled></select>
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Installed modules</label><select id="nInstalledList_ApplicationSettings" size="2" class="combobox OFCombobox"></select>
+<!-- NOTE: the below +/- buttons add or remove modules from the software. We don't have to worry about the naming or icon associated with this as this info is derrived from the package that gets installed via the '+' button -->
+<!-- UPDATED 2025/03/01	<li><span><input type="button" id="btnInstalledAdd_ApplicationSettings" value="+" class="button OEButton disabled" disabled title="Add" onClick="addModule_ApplicationSettings('upload');" /><input type="button" id="btnInstalledDel_ApplicationSettings" value="-" class="button OEButton space disabled" disabled title="Delete" onClick="delModule_ApplicationSettings('req');" /></span> -->
+			<li><span><input type="button" id="objInstalledDel_ApplicationSettings" value="-" class="button OEButton delete disabled" disabled title="Delete" onClick="ApplicationSettings('UninstallModule','',document.getElementById('nInstalledList_ApplicationSettings').options[document.getElementById('nInstalledList_ApplicationSettings').selectedIndex].text);" /></span>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Install modules</label><div id='divModuleDrop_ApplicationSettings' class="dropbox" onClick="this.getElementsByClassName('fd-file')[0].click()">
+					<span class="message">To upload, click this box or drag-and-drop files here from your file manager.</span>
+					<div class="multiple"><input type="checkbox" id="multiple" title="Checking this box will enable multiple file selections when uploading" onClick="if(event.stopPropagation){event.stopPropagation();} event.cancelBubble=true;" /></div>
+				</div>
+<!-- LEFT OFF - add in the [-] button to delete the uploaded script -->
+			<li><span><input type="button" id="oInstallModules_ApplicationSettings" value="+" class="button OEButton" title="Install Modules" onClick="Widgets('load',null,'exts');" /></span>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+	</div>
+
+
+	<div id='divTabs_ApplicationSettings3' class='Body'>
+		<ul class='ulCol'>
+			<li><label>Module groups</label><input type="textbox" id="sGroupName_ApplicationSettings" placeholder='Group Name' maxlength="24" class="textbox OFTextbox" onBlur="Security('Validate',this,'a-zA-Z0-9 _\-','Group Name');" />
+<!-- NOTE: the sGroupIcon_ApplicationSettings reflects an uploaded image filename and path, although this can be manually edited if an image already exists on the server (otherwise, the user will have to use the 'Upload' button) -->
+<!-- LEFT OFF - get the upload icon button working; make it so the group name must be entered first, then rename the uploaded file to "webooks.groups.GROUP_NAME.png" -->
+<!-- LEFT OFF - replace the '+' and 'Update' buttons with a single 'Save' -->
+<!-- LEFT OFF - disable the records when deleting; have a search box come up with all names in the database, and if the user selects a name for a record that is disabled, just re-enable it; this will preserve 'foreign key' links in the database while making changes (that can be reversed); do the same for the module names in the tab above -->
+			<li><span><input type="button" id="objGroupClear_ApplicationSettings" value="*" class="button OEButton disabled" disabled title="New" onClick="ApplicationSettings('ClearGroup');" /><input type="button" id="objGroupAdd_ApplicationSettings" value="+" class="button OEButton space" title="Add" onClick="ApplicationSettings('SaveGroup');" /><input type="button" id="objGroupDel_ApplicationSettings" value="-" class="button OEButton space" title="Delete" onClick="ApplicationSettings('DeleteGroup');" /><input type="button" id="objGroupUpdate_ApplicationSettings" value="Update" class="button OTButton space" title="Save" onClick="ApplicationSettings('SaveGroup');" /></span><input type="textbox" id="sGroupIcon_ApplicationSettings" placeholder='Icon filename' maxlength="48" class="textbox TTTextbox" onBlur="Security('Validate',this,'!=<>;','Icon Filename');" /><input type="button" id="btnGroupIcon_ApplicationSettings" value="Upload" class="button OTButton space disabled" disabled onClick="document.getElementById('fGroupIcon_ApplicationSettings').click();" /><input type='file' id='fGroupIcon_ApplicationSettings' class='hide' />
+			<li><select id="nGroupList_ApplicationSettings" size="2" class="combobox OFCombobox" onChange="ApplicationSettings('LoadGroup');"></select>
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Included modules</label><select id="nIncludedList_ApplicationSettings" size="2" class="combobox OFCombobox" onClick=""></select>
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Installed modules</label><select id="nInstalledListing_ApplicationSettings" size="2" class="combobox OFCombobox"></select>
+			<li><span><input type="button" id="objInstalledInclude_ApplicationSettings" value="&laquo;" class="button OEButton disabled" disabled title="Move to Included" onClick="ApplicationSettings('IncludeModule');" /></span><span><input type="button" id="objIncludedRemove_ApplicationSettings" value="&raquo;" class="button OEButton space disabled" disabled title="Remove from Included" onClick="ApplicationSettings('RemoveModule');" /></span>
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+	</div>
+
+
+	<div id='divTabs_ApplicationSettings4' class='Body'>
+		<ul class='ulCol'>
+			<li><select id="sLogs_ApplicationSettings" size="1" class="listbox OFListbox" onChange="ApplicationSettings('LoadLog');">
+					<option value=''>Select...</option>
+				</select><input type="button" id="oLogReload_ApplicationSettings" value="Reload" class="button OTButton space" title="Reload the logs" onClick="ApplicationSettings('LoadLogs');" /><input type="button" id="oLogRefresh_ApplicationSettings" value="Refresh" class="button OTButton space" title="Refresh the log contents" onClick="ApplicationSettings('LoadLog');" /><input type="button" id="oLogDelete_ApplicationSettings" value="Delete" class="button OTButton space" title="Delete the log" onClick="ApplicationSettings('DeleteLog');" />
+			<li><textarea id="sLog_ApplicationSettings" class="textbox"></textarea>
+		</ul>
+	</div>
+
+
+	<div id='divTabs_ApplicationSettings5' class='Body'>
+		<ul class='ulCol'>
+			<li><label>Access URI</label><input type="textbox" id="sAccessURI_ApplicationSettings" maxlength="128" class="textbox OFTextbox" onBlur="Security('Validate',this,'a-zA-Z0-9:/%\._\-','Access URI');" />
+			<li><label>Logins &amp; Support</label><input type="textbox" id="nRequiredLogins_ApplicationSettings" maxlength="4" class="textbox OQTextbox center" onKeyUp="calcCharges_ApplicationSettings();" onBlur="Security('Validate',this,'0-9','Logins');" /><select id="nTechSupport_ApplicationSettings" size="1" class="listbox TQListbox space" onChange="calcCharges_ApplicationSettings();"><option value='0'>No tech support</option><option value='1'>Add tech support</option></select>
+			<li><input type='button' name='btnWebfice_ApplicationSettings' value='Save' class='button OHButton' onClick="saveHosted_ApplicationSettings('req');" />
+			<li>&nbsp;
+<!-- VER2 - the below should be shown on the customer UI (e.g. website), not in webbooks.  this should be asking if payment should be charged to the user (allowing them to setup one or more qty&pricing tiers so the below shows up correctly to the user.  there should also be a section in here to post your Terms of Service that has to be agreed to before creating an (customer?) account -->
+			<li><label>Balance &amp; Cost</label><input type="textbox" id="nBalance_ApplicationSettings" maxlength="10" value='0.00' class="textbox OHTextbox right" title="The current account balance that the monthly cost is deducted from" /><input type="textbox" id="nCost_ApplicationSettings" maxlength="10" value='0.00' class="textbox OHTextbox right space" title="The monthly cost of your hosted services account" />
+			<form target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<li><label>Add funds</label><select name='os0' class='listbox OTListbox'><option value="$10">$10</option><option value="$20">$20</option><option value="$30">$30</option><option value="$40">$40</option><option value="$50">$50</option><option value="$100">$100</option><option value="$150">$150</option><option value="$200">$200</option><option value="$250">$250</option><option value="$500">$500</option></select><select name='hosted_button_id' id="hosted_button_id" size="1" class="listbox TTListbox space"><option value='2L8YKU6BPYCVJ'>Single payment</option><option value='AE6F7ZRNWAQRE'>Charge monthly</option></select>
+				<li><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="on0" value="Subscription Amount"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="custom" id="custom" value=""><input type='submit' name='btnSubmit_ApplicationSettings' value='Submit' class='button OHButton' />
+			</form>
+			<li>&nbsp;
+		</ul>
+	</div>
+

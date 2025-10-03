@@ -1,0 +1,174 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<title>webBooks [Login]</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Dave Henderson">
+	<meta name="description" content="webBooks - online business management software">
+	<meta name="keywords" content="" />
+	<!-- http://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers -->
+	<!--
+	<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+	<meta http-equiv='Pragma' content='no-cache' />
+	<meta http-equiv='Expires' content='0' />
+	-->
+	<!-- http://stackoverflow.com/questions/21738675/why-wont-my-viewport-tag-properly-use-device-width-no-zoom-on-most-mobile-dev -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- https://www.favicon-generator.org/ -->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="imgs/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="manifest" href="imgs/manifest.json">
+	<link rel="apple-touch-icon" sizes="57x57" href="imgs/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="imgs/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="imgs/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="imgs/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="imgs/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="imgs/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="imgs/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="imgs/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="imgs/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="imgs/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="imgs/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon-16x16.png">
+
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_global.css?v=1.0">	<!-- WARNING: these two MUST come first!!! -->
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_module.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_popup.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_Session.css?v=1.0">
+
+	<script language="javascript" src="code/_Ajax.js"></script>
+	<script language="javascript" src="code/_browser.js"></script>
+	<script language="javascript" src="code/_Captcha.js"></script>
+	<script language="javascript" src="code/_Cookie.js"></script>
+	<script language="javascript" src="code/_Project.js"></script>
+	<script language="javascript" src="code/_Security.js"></script>
+	<script language="javascript" src="code/_Session.js"></script>
+	<script language="javascript" src="code/Application.js"></script>
+	<script language="javascript" src="code/jQuery_3.4.1.js"></script>
+	<script language="javascript" src="data/_modules/ApplicationSettings/config.js"></script>	<!-- WARNING: this MUST come below _cookie.js -->
+
+	<!-- ANALYTICS -->
+	<!-- add this in for your own site -->
+
+	<script language="javascript">
+	<!--
+
+	var Orientation='';							// used to indicate the mobile devices orientation: portrait, landscape
+	var Rotated=0;								// indicates that the orientation has changed
+
+
+	function formLoad() {
+// DEBUG
+if (1 == 0) {
+  setCookie('SID', '12345', null, '/');
+  setCookie('username', 'hendedav', null, '/');
+  setCookie('first', 'Dave', null, '/');
+  setCookie('admin', '0', null, '/');
+}
+if (1 == 0) {
+  delCookie('SID','/');
+  delCookie('username','/');
+  delCookie('first','/');
+  delCookie('admin','/');
+}
+
+//alert('sid 1 |'+document.getElementById('hidSID').value+'|');
+//document.getElementById('hidSID').value = '';
+//document.getElementById('hidUsername').value = '';
+
+// UPDATED 2025/01/12 - removing SID and UN from the HTML forms
+//		document.getElementById('hidSID').value = getCookie('SID');
+//		document.getElementById('hidUsername').value = (getCookie('username') == undefined) ? 'guest' : getCookie('username');
+
+		_sProjectUI = 'Popup';				// define how (ajax) messages will be displayed
+
+		// if the user is already logged in, then redirect to the homepage
+		if (Cookie('Obtain','sSessionID') && Cookie('Obtain','sUsername')) { location.href = Session('Homepage'); return false; }
+
+		isMobile();
+		formLayout();
+		parseURI();							// WARNING: this MUST come after the 'reset' of values above so the proper products are filtered in the results listing
+
+		if ((! isFirefox && ! isChrome && ! isOpera) || isEdge)		// if you're using Apple Safari or Microsoft browsers, then...
+			{ setTimeout('alert("WARNING: To cover as many users as possible, only the top 3 browsers built to run on Apple, Linux, and Windows devices are supported and include Mozilla Firefox, Google Chrome, and Opera Browser. Unfortunately this browser is either unknown -or- known to only work with one operating system. Although this project should (mostly) work, we suggest using one of the listed alternatives to get the best experience possible. Please contact your support staff with any questions you may have.");',100); }
+
+		Session('Login');
+	}
+
+
+	function formLayout() {
+		if (Mobile) {
+// REMOVED 2021/03/19 - these do not exist anywhere; commented out so it works on mobile
+//			document.getElementById('liSocialToggle').innerHTML = '';	// removed the Social link (which should only be shown on desktops)
+//			document.getElementById('liModuleClose').innerHTML = '';	// removes the 'X' from showing in the 'Status' bar (which should only be shown on desktops)
+//			document.getElementById('ulSidebar').style.width = (parseInt($(window).height()) - 2) + 'px';
+			return true;							// no reason to process the below background image manipulation since it's hidden now!
+		}
+
+		// set the background image size below
+		var iWinHeight = $(window).height();
+		var iWinWidth = $(window).width();
+		var iDocHeight = $(document).height();
+		var iDocWidth = $(document).width();
+
+		if (iDocHeight > iWinWidth) {						// we're in a portrait view
+			var iTop = parseInt((iWinHeight - iWinWidth) / 2)+'px';
+			var iLeft = '0px';
+
+			if (iWinHeight > iWinWidth) { var iSize = iWinHeight+'px'; }
+			else if (iDocHeight > iWinWidth) { var iSize = iWinWidth-20+'px'; }
+		} else {								// we're in a landscape view
+			var iSize = iDocHeight+'px';
+			var iTop = '0px';
+			var iLeft = parseInt((iWinWidth - iDocHeight) / 2)+'px';
+		}
+
+		document.getElementById('imgPage').style.height = iSize;
+		document.getElementById('imgPage').style.width = iSize;			// to maintain 4:1
+		document.getElementById('imgPage').style.top = iTop;
+		document.getElementById('imgPage').style.left = iLeft;
+	}
+
+
+	function processURI() {
+		// a supplemental function for parseURI() so that the proper tab can be clicked
+	}
+
+	//-->
+	</script>
+</head>
+
+
+<body onLoad="formLoad();" onResize="formLayout();">
+	<img id="imgPage" src="home/${UN}/imgs/bg.svg" />
+	<div id="divBalloon" onClick="$(this).fadeOut('slow');"></div>
+	<div id="divOverlay" class="overlay"></div>					<!-- this is to "blackout" the background for "popups" -->
+	<div id="divPopup"></div>
+
+
+
+
+	<div id="divSignin"></div>
+
+
+	<div id='divFunding' class='header'>
+		<form target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<ul>
+				<li><select name='os0' class='listbox OTListbox'><option value="$10">$10</option><option value="$20">$20</option><option value="$30">$30</option><option value="$40">$40</option><option value="$50">$50</option><option value="$100">$100</option><option value="$150">$150</option><option value="$200">$200</option><option value="$250">$250</option><option value="$500">$500</option></select>
+				<li><select name='hosted_button_id' id="hosted_button_id" size="1" class="listbox TTListbox"><option value='2L8YKU6BPYCVJ'>Single payment</option><option value='AE6F7ZRNWAQRE'>Charge monthly</option></select>
+				<li><input type='submit' name='btnSubmit_SystemConfiguration' value='Submit' class='button OHButton' /><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="on0" value="Subscription Amount"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="custom" id="custom" value="">
+<!--
+				<li><select name='os0' class='listbox OTListbox'><option value="$10">$10</option><option value="$20">$20</option><option value="$30">$30</option><option value="$40">$40</option><option value="$50">$50</option><option value="$100">$100</option><option value="$150">$150</option><option value="$200">$200</option><option value="$250">$250</option><option value="$500">$500</option></select>
+				<li><select id="sChargeType_SystemConfiguration" size="1" class="listbox TTListbox" onChange="if(this.selectedIndex==0){document.getElementById('hosted_button_id').value='2L8YKU6BPYCVJ';}else{document.getElementById('hosted_button_id').value='AE6F7ZRNWAQRE';}"><option>Single payment</option><option>Charge monthly</option></select>
+				<li><input type='submit' name='btnSubmit_SystemConfiguration' value='Submit' class='button OHButton' /><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" id='hosted_button_id' value="2L8YKU6BPYCVJ"><input type="hidden" name="on0" value="Subscription Amount"><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="custom" id="custom" value="">
+-->
+			</ul>
+		</form>
+	</div>
+</body>
+</html>
+

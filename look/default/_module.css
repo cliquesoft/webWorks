@@ -1,0 +1,335 @@
+
+
+
+
+
+/*		LEFT OFF - move this into Application.css			*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* OBJECTS */
+.container .Body form { display: inline-block; width: auto; }		/* these were added so that the <form> would be as big as its encapsulated <ul> */
+
+.container .buttons { float: right; margin: 0 35px 0 0; height: 30px; }
+.container .buttons li { display: inline; }
+.container .buttons li .button { padding-left: 10px; padding-right: 10px; }
+
+.container .Body .button {
+  color: #fff;
+  background: #4088ff;
+  cursor: pointer;
+  font-weight: normal;
+  opacity: 0.6;
+
+  border: solid 1px #0055e3;
+  border-radius: 0.3em;
+  box-shadow:0 0 4px rgba(0,0,0,0.7) inset; }	/* ,0 -3px 2px rgba(0,0,0,0.2) */
+.container .Body .button:hover { background-color: #808080; border: 1px solid #808080; }
+
+
+iframe { width: 100%; height: 100%; border-width: 0; }
+
+
+.ulCol {			/* LEFT OFF - rename this .Group */
+/*		REPLACED 2021/03/18 - better way to align the objects; access to more properties
+  float: left;	https://stackoverflow.com/questions/15172520/advantages-of-using-displayinline-block-vs-floatleft-in-css
+*/
+display: inline-block;
+vertical-align: top;
+  margin: 0 10px;
+  width: 350px;
+  text-align: right; }
+.ulColData {					/* these are the styling definitions for the 'Data' upload tabs */
+  margin: 0 auto;
+  width: 525px;
+  text-align: right; }
+.ulCol li, .ulColData li { height: 28px; }
+.ulCol div, .ulColData div {			/* any <div> will be considered to be treated as a textbox */
+  float: right;
+  margin-bottom: 4px;
+  padding-top: 1px;
+  height: 16px;
+  text-align: left;
+  overflow: auto; }
+.ulCol img, .ulColData img { height: 18px; width: 18px; vertical-align: bottom; }
+.ulColDark { background-color: rgba(0,0,0,0.2); border-radius: 0.5em; }
+
+
+#liUserAccount { text-decoration: underline; cursor: pointer; }				/* LEFT OFF - move all this into dashboard.css */
+/* #divContainer_Social { display: none; }						   DEPRECATED 2025/10/01 - this is now another taskbar icon */
+#ulControls2 { float: right; }
+
+#sStatus_Dashboard,
+#sAvailability_Dashboard {
+  width: 95px;
+  font-size: 11px;
+  background-color: transparent;
+  /*color: #76a7dc;*/
+  color: #555;
+  font-weight: bold;
+  border-width: 0;
+  border-bottom: 1px solid #555;
+  text-align: center; }
+
+
+
+
+/* LAYOUT */
+
+/* DEPRECATED
+.page .container #divProvider_Social { overflow: hidden; }
+.page .container #ifProvider_Social { width: 100%; height: 100%; }
+*/
+
+
+.header ul li { display: inline; }
+.header ul li img { margin: 2px 5px 0 8px; cursor: pointer; }
+
+
+.sidebar ul {
+  min-width: 200px;
+  transform-origin: top left;
+  transform: rotate(90deg) translateX(0%) translateY(-44px);
+  -webkit-transform: rotate(90deg) translateX(0%) translateY(-44px);			/* Safari */
+  -moz-transform: rotate(90deg) translateX(0%) translateY(-44px);			/* Firefox */
+  -ms-transform: rotate(90deg) translateX(0%) translateY(-44px);			/* IE */
+  -o-transform: rotate(90deg) translateX(0%) translateY(-44px);				/* Opera */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);			/* Internet Explorer */
+}
+.sidebar li {
+  display: inline-block;
+  margin: 5px 2px 0;
+  height: 30px;
+  font-size: 14px;
+  border: 1px solid #808080;
+  border-radius: 0.5em; }
+.sidebar li:nth-child(n+2) { width: 105px; }
+.sidebar li img { float: left; margin: 4px 4px 0; cursor: pointer; transform: rotate(-90deg); }
+.sidebar li label { display: block; margin-top: 6px; width: 100%; text-align: center; }
+
+.footer ul li { display: inline; }
+.footer ul li .Screens { border: 1px solid #666; border-radius: 0.5em; cursor: pointer; }
+
+
+.footer #ulTaskbar { margin-top: 7px; overflow: hidden; text-align: center; }
+.footer #ulTaskbar li { display: inline; margin: 0 2px; opacity: 0.4; cursor: pointer; }
+.footer #ulTaskbar li:hover { opacity: 0.7; }
+.footer #ulTaskbar .liSel { opacity: 1; }
+.footer #ulTaskbar .liSel:hover { opacity: 1; }
+.footer #ulTaskbar li img { background-color: #808080; }
+
+.footer #ulStatus { margin: 0 auto; text-align: center; }
+.footer #ulStatus li { display: inline; }
+.footer #ulStatus .liAction { cursor: pointer; }
+
+
+
+
+/* ENHANCEMENTS */
+
+.space { margin-left: 4px; }
+.spaceo { margin-left: 3px; }			/* used for odd spacing */
+.desc {						/* used on the 'Spec' tabs */
+	width: 135px;
+	padding: 3px;
+	font-size: 14px;
+	background-color: transparent;
+	border-top: 1px solid transparent;
+	border-right: 1px solid transparent;
+	border-bottom: 1px solid #8eb4f2;
+	border-left: 1px solid transparent;
+}
+.encrypted { border: 1px solid #a9d260; color: #444; }
+.searchable { border: 1px solid #FFAEAD; color: #444; }
+.matches {
+	position: absolute;
+	display: none;
+	margin-top: 27px;
+	margin-left: -133px;
+	padding: 2px 0 0 5px;
+	width: 335px;
+	color: #fff;
+	background-color: rgba(0,0,0,0.8);
+	border: 1px solid #8eb4f2;
+	border-radius: 0.3em;
+	z-index: 10;
+}
+
+
+
+
+/* PERSONALIZATION */
+
+#divPopup div #ulAddonList li { display: block; padding-right: 5px; font-size: 14px; text-align: justify; }
+#divPopup div #ulAddonList li img { float: left; margin-right: 5px; border: 1px solid #444; border-radius: 0.3em; }
+#divPopup div #ulAddonList li label { float: none; font-size: 14px; }
+#divPopup div #ulAddonList li .checkbox { float: left; }
+#divPopup div #ulAddonList li .button { border: 1px solid #808080; }
+
+#divPopup #formDetails #txtCaptcha { margin-right: 4px; width: 164px; text-align: center; }
+#divPopup #formDetails #imgCaptcha { padding: 2px; width: 20px; height: 19px; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.3em; vertical-align: top; }
+#divPopup #formDetails #imgCaptcha:hover { border: 1px solid rgba(0,0,0,0.4); cursor: pointer; }
+#divPopup #formDetails #captcha { border: 1px solid #8eb4f2; border-radius: 0.3em; }	/* #6FCEF4 */
+
+#divPopup #formIssue #txtCaptcha { margin-right: 4px; width: 100px; text-align: center; }
+#divPopup #formIssue #imgCaptcha { margin-right: 4px; padding: 2px; width: 20px; height: 19px; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.3em; vertical-align: top; }
+#divPopup #formIssue #imgCaptcha:hover { border: 1px solid rgba(0,0,0,0.4); cursor: pointer; }
+#divPopup #formIssue #btnSubmit { width: 60px; }
+#divPopup #formIssue #captcha { border: 1px solid #8eb4f2; border-radius: 0.3em; }	/* #6FCEF4 */
+
+#divPopup #formFeature #txtCaptcha { margin-right: 4px; width: 100px; text-align: center; }
+#divPopup #formFeature #imgCaptcha { margin-right: 4px; padding: 2px; width: 20px; height: 19px; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.3em; vertical-align: top; }
+#divPopup #formFeature #imgCaptcha:hover { border: 1px solid rgba(0,0,0,0.4); cursor: pointer; }
+#divPopup #formFeature #btnSubmit { width: 60px; }
+#divPopup #formFeature #captcha { border: 1px solid #8eb4f2; border-radius: 0.3em; }	/* #6FCEF4 */
+
+#divPopup .divButtons #btnCreate,
+#divPopup .divButtons #btnCancel { width: 60px; }
+
+
+
+
+
+#divSocial { display: none; }
+
+
+
+
+
+
+
+/* MOBILE */
+
+/* Smartphone (portrait and landscape) - CGA (320) to HVGA (480) */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 736px) {
+	.ulCol li, .ulColData li { margin: 2px 0; }
+	.ulCol li.NotOnMobile, .ulColData li.NotOnMobile { display: none; }
+
+	.ulColDark { background-color: transparent; }	/* unset this from above */
+
+
+	.container .buttons {				/* this is for the "Options" menu too */
+		position: absolute;			/* change this value */
+		display: none;
+		float: none;				/* unset this value */
+		top: auto;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+		margin: 0;				/* unset this value */
+		height: auto;				/* unset this value */
+		z-index: 1003;				/* get above the divOverlay and ulTabs */
+	}
+	.container .buttons li {
+		width: 90%;
+		text-align: center;
+	}
+	.container .buttons .button {
+		width: 100%;
+		max-width: 200px;
+		font-size: 20px;
+		background: transparent;
+	}
+
+	#divHeader_Dashboard { display: none; }
+
+	.header #ulControls1 {
+		margin: 4px 0;
+		width: 50%;
+		text-align: center;
+	}
+	.header #ulControls2 {
+		width: 50%;
+		text-align: center;
+	}
+
+	.footer #ulStatus { display: none; }
+
+	.footer #ulOpened { margin-top: 0; }
+	.footer #ulOpened li {
+		display: inline-block;
+		margin: 0;
+		padding: 15px 7px;
+	}
+}
+
+
+/* Smartphone (landscape) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: landscape) {
+	.container .tabs { right: 30%; }
+	.container .buttons { left: 70%; }
+	.container .buttons li {
+		display: block;
+		margin: 5px 0 5px auto;
+	}
+
+	.sidebar li:nth-child(n+2) { padding-left: 10px; padding-right: 10px; width: auto; }
+}
+
+
+/* Smartphone (portrait) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: portrait) {
+	.container .tabs { right: 40%; }
+	.container .buttons { left: 60%; }
+	.container .buttons li {
+		display: block;
+		margin: 10px 0 10px auto;
+	}
+
+	.ulCol { width: calc(100% - 20px); }
+	.ulCol label { display: block; width: 100%; text-align: left; }
+	.ulCol li, .ulColData li { height: auto; }
+}
+
+
+/* Tablet (portrait and landscape) - PAL (768) to PAL+ (1024) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+}
+
+
+/* Tablet (landscape) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) {
+}
+
+
+/* Tablet (portrait) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: portrait) {
+}
+
+
+/* Desktop/Laptop (landscape) - HD 720 (1280x720), Unnamed (1366x768), WXGA (1280x800) */
+/* Anything else - Unnamed (1440x900), Unnamed (1600x900), WSXGA+ (1680x1050), HD 1080 (1920x1080), WUXGA (1920x1200) */
+/* NOTE: we 'min-device-width > 736' so that cell phones aren't triggered */
+@media only screen 
+and (min-device-width: 737px)
+and (min-height: 720px) {
+}
+

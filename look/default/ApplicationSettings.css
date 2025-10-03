@@ -1,0 +1,64 @@
+/* Global Styling */
+#divApplicationSettings #divTabs_ApplicationSettings0,
+#divApplicationSettings #divTabs_ApplicationSettings2,
+#divApplicationSettings #divTabs_ApplicationSettings3,
+#divApplicationSettings #divTabs_ApplicationSettings4,
+#divApplicationSettings #divTabs_ApplicationSettings5 { display: none; }
+#divApplicationSettings #divTabs_ApplicationSettings0 { overflow: hidden; }
+#divApplicationSettings #liHosted_ApplicationSettings { visibility: hidden; }
+
+
+/* General Tab */
+/*	DEPRECATED 2025/03/01
+#divApplicationSettings #divTabs_ApplicationSettings1 #nTimeout_ApplicationSettings { margin-left: 4px; }
+#divApplicationSettings #divTabs_ApplicationSettings1 #bAdminMobileSMS_SystemConfiguration { margin-left: 5px; vertical-align: bottom; }
+#divApplicationSettings #divTabs_ApplicationSettings1 #bAdminMobileEmail_SystemConfiguration { margin-left: 4px; vertical-align: bottom; }
+#divApplicationSettings #divTabs_ApplicationSettings1 #sPrinterList_SystemConfiguration { float: right; height: 333px; }
+ */
+#divApplicationSettings #divTabs_ApplicationSettings1 #divImportDrop_ApplicationSettings {
+	display: none;
+	width: 350px;
+	height: 417px;
+	vertical-align: top;
+	background: transparent url('../imgs/_Filedrop.jpg') repeat-x;		/* the pwd is 'home/USER/look' */
+}
+
+/* Modules Tab */
+#divApplicationSettings #divTabs_ApplicationSettings2 #sUpdatesList_ApplicationSettings { height: 387px; text-transform: capitalize; }
+#divApplicationSettings #divTabs_ApplicationSettings2 #nInstalledList_ApplicationSettings { float: right; min-height: 417px; }
+#divApplicationSettings #divTabs_ApplicationSettings2 #divModuleDrop_ApplicationSettings {
+	float: right;
+	width: 194px;
+	min-height: 414px;
+	background: transparent url('../imgs/_Filedrop.jpg') repeat-x;
+}
+
+
+
+/* Groups Tab */
+#divApplicationSettings #divTabs_ApplicationSettings3 #objGroupDel_ApplicationSettings,
+#divApplicationSettings #divTabs_ApplicationSettings3 #objGroupUpdate_ApplicationSettings { display: none; }
+#divApplicationSettings #divTabs_ApplicationSettings3 #nGroupList_ApplicationSettings { float: right; min-height: 357px; }
+#divApplicationSettings #divTabs_ApplicationSettings3 #nIncludedList_ApplicationSettings,
+#divApplicationSettings #divTabs_ApplicationSettings3 #nInstalledListing_ApplicationSettings { float: right; min-height: 417px; }
+
+
+
+/* Logs Tab */
+#divApplicationSettings #divTabs_ApplicationSettings4 .ulCol { width: 90%; height: 100%; }
+#divApplicationSettings #divTabs_ApplicationSettings4 .ulCol li { width: 100%; }
+#divApplicationSettings #divTabs_ApplicationSettings4 .ulCol li:last-child { height: calc(100% - 32px); }
+#divApplicationSettings #divTabs_ApplicationSettings4 #oLogDelete_ApplicationSettings {
+	color: #f00;
+	background-color: #ffadad;
+	border-color: #f00;
+}
+#divApplicationSettings #divTabs_ApplicationSettings4 #sLog_ApplicationSettings {
+	min-width: 200px;
+	width: calc(100% - 8px);
+	min-height: 400px;
+	height: calc(100% - 10px);
+	white-space: pre-wrap;
+	overflow: auto;
+}
+

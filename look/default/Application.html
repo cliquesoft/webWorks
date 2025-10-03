@@ -1,0 +1,620 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<title>${PROJECT}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Dave Henderson">
+	<meta name="description" content="${PROJECT} - web-based management software for projects and businesses">
+	<meta name="keywords" content="" />
+	<!-- http://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers -->
+	<!--
+	<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+	<meta http-equiv='Pragma' content='no-cache' />
+	<meta http-equiv='Expires' content='0' />
+	-->
+	<!-- http://stackoverflow.com/questions/21738675/why-wont-my-viewport-tag-properly-use-device-width-no-zoom-on-most-mobile-dev -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- https://www.favicon-generator.org/ -->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="imgs/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="manifest" href="imgs/manifest.json">
+	<link rel="apple-touch-icon" sizes="57x57" href="imgs/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="imgs/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="imgs/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="imgs/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="imgs/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="imgs/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="imgs/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="imgs/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="imgs/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="imgs/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="imgs/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon-16x16.png">
+
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_global.css?v=1.0">	<!-- WARNING: these two MUST come first!!! -->
+<!-- VER2 - remove once _module.css has been merged into Application.css -->
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_module.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_Calendar.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_Contact.css?v=1.0">
+<!-- UNUSED
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_contact.css?v=1.0">
+-->
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_Filedrop.css?v=1.0">
+<!-- UNUSED
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_gallery.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_login.css?v=1.0">
+-->
+
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/_popup.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/Application.css?v=1.0">
+	<link rel="stylesheet" type="text/css" href="home/${UN}/look/jQuery.mobilyblocks.css?v=1.0">
+
+	<script language="javascript" src="code/_Ajax.js"></script>
+	<script language="javascript" src="code/_browser.js"></script>
+	<script language="javascript" src="code/_Calendar.js"></script>
+	<script language="javascript" src="code/_Captcha.js"></script>
+	<script language="javascript" src="code/_Contact.js"></script>
+	<script language="javascript" src="code/_Cookie.js"></script>
+	<script language="javascript" src="code/_Filedrop.js"></script>
+<!-- UNUSED
+	<script language="javascript" src="code/_gallery.js"></script>
+	<script language="javascript" src="code/_gallery.admin.js"></script>
+-->
+<!-- DEPRECATED 2025/06/24 - replaced with _Security.js
+	<script language="javascript" src="code/_global.js"></script>
+-->
+	<script language="javascript" src="code/_Listbox.js"></script>
+<!-- DEPRECATED 2025/02/16 - replaced with _session.js
+	<script language="javascript" src="code/_login.js"></script>
+	<script language="javascript" src="code/_logout.js"></script>
+-->
+	<script language="javascript" src="code/_Project.js"></script>
+	<script language="javascript" src="code/_Numbers.js"></script>
+<!-- DPRECATED 2025/05/14 - moved into Application.js
+	<script language="javascript" src="code/_popup.js"></script>
+-->
+	<script language="javascript" src="code/_Search.js"></script>
+	<script language="javascript" src="code/_Security.js"></script>
+	<script language="javascript" src="code/_Session.js"></script>
+<!-- DEPRECATED 2025/06/24 - moved into _Contact.js
+	<script language="javascript" src="code/_share.js"></script>
+-->
+	<script language="javascript" src="code/_Tabs.js"></script>
+	<script language="javascript" src="code/Application.js"></script>
+			<!--
+	<script language="javascript" src="code/_Project.js"></script>
+			-->
+	<script language="javascript" src="code/jQuery_3.4.1.js"></script>
+	<script language="javascript" src="code/jQuery.browser_2020.06.24.js"></script>		<!-- dependency for 'mobilyblocks' -->
+	<script language="javascript" src="code/jQuery.filedrop_2014.12.19.js"></script>
+	<script language="javascript" src="code/jQuery.mobilyblocks_2011.01.25.js"></script>
+	<script language="javascript" src="data/_modules/ApplicationSettings/config.js"></script>		<!-- WARNING: we MUST use this path so that the 'Application Settings' module obtains it's .js/.css files -->
+
+	<!-- ANALYTICS -->
+	<!-- add this in for your own site -->
+
+	<script language="javascript">
+	<!--
+
+	var initFunction=0;							// used by checkFile()
+	var Orientation='';							// used to indicate the mobile devices orientation: portrait, landscape
+	var Rotated=0;								// indicates that the orientation has changed
+
+	$.fn.extend({								// a custom extension to jQuery
+		toggleText: function(a, b){
+			this.animate({opacity: 0}, 400, function(){
+				if ($(this).text() == a) { $(this).text(b); }
+				else { $(this).text(a) }
+
+				$(this).animate({opacity: 1}, 400);
+			});
+		}
+	});
+
+// used by LEGACY
+	if (typeof _sUriProject !== 'undefined') {		// if we're using the NEW code, then...
+		var gbl_nameUser = 'guest';			// this is for _calendar.js
+		var gbl_uriProject = '';			// this is for _share.js
+		var CAPTCHAS = true;				// this is for _share.js
+	}
+
+	function formLoad() {
+if (1 == 0) {					// for Debugging
+	delCookie('sSessionID','/');
+	delCookie('sUsername','/');
+	delCookie('FN','/');
+	delCookie('admin','/');
+
+}
+// REMOVED 2025/02/16 - do NOT even show the dashboard if their is not a valid login
+//		document.getElementById('hidSID').value = getCookie('SID');
+//		document.getElementById('hidUsername').value = (getCookie('username') == undefined) ? 'guest' : getCookie('username');
+
+		_sProjectUI = 'Notice';				// define how (ajax) messages will be displayed
+
+// UPDATED  2025/06/28
+//		if (! getCookie('sSessionID')) { location.href = Session('Authpage'); return false; }
+//alert('loading the dashboard...');
+//Cookie('Create','sSessionID','d89abfd7fba88972cc5081284cb8ed3532d4ea0e');
+//Cookie('Create','sUsername','admin');
+//alert('sid |'+Cookie('Obtain','sSessionID')+'|');
+		if (! Cookie('Obtain','sSessionID')) { location.href = Session('Authpage'); return false; }
+
+		isMobile();
+		formLayout();
+		parseURI();							// WARNING: this MUST come after the 'reset' of values above so the proper products are filtered in the results listing
+
+		Dashboard('initialize');
+
+// LEFT OFF - rename 'balloons_Dashboard'
+// UPDATED  2025/06/28
+//		if (! getCookie('balloons_webBooks')) {				// if the cookie doesn't exist, then...
+//			setCookie('balloons_webBooks', '1');			// create the cookie if it doesn't exist!	WARNING: this prevented a bug if the default.html balloons didn't get clicked through to create a cookie before other screens/siders were opened
+		if (! Cookie('Obtain','balloons_webBooks')) {				// if the cookie doesn't exist, then...
+			Cookie('Create','balloons_webBooks', '1');			// create the cookie if it doesn't exist!	WARNING: this prevented a bug if the default.html balloons didn't get clicked through to create a cookie before other screens/siders were opened
+			showBalloons(1);					//    we need to show all the current balloons!
+		} else {							// otherwise at least some balloons have been shown, but there could be more!
+// UPDATED  2025/06/28
+//			var iBalloons = parseInt(getCookie('balloons_webBooks'));
+			var iBalloons = parseInt(Cookie('Obtain','balloons_webBooks'));
+			if (iBalloons < 8) { showBalloons(iBalloons+1); }
+		}
+
+		if ((! isFirefox && ! isChrome && ! isOpera) || isEdge)	// if you're using Apple Safari or Microsoft browsers, then...
+			{ setTimeout('alert("WARNING: To cover as many users as possible, only the top 3 browsers built to run on Apple, Linux, and Windows devices are supported and include Mozilla Firefox, Google Chrome, and Opera Browser. Unfortunately this browser is either unknown -or- known to only work with one operating system. Although this project should (mostly) work, we suggest using one of the listed alternatives to get the best experience possible. Please contact your support staff with any questions you may have.");',100); }
+	}
+
+
+	function formLayout() {
+		if (Mobile) {
+			document.getElementById('liSocialToggle').innerHTML = '';		// removed the Social link (which should only be shown on desktops)
+			document.getElementById('liClose_Dashboard').innerHTML = '';		// removes the 'X' from showing in the 'Status' bar (which should only be shown on desktops)
+			document.getElementById('ulSidebar').style.width = (parseInt($(window).height()) - 2) + 'px';
+			return true;								// no reason to process the below background image manipulation since it's hidden now!
+		}
+
+		// set the background image size below
+		var iWinHeight = $(window).height();
+		var iWinWidth = $(window).width();
+		var iDocHeight = $(document).height();
+		var iDocWidth = $(document).width();
+
+		if (iDocHeight > iWinWidth) {							// we're in a portrait view
+			var iTop = parseInt((iWinHeight - iWinWidth) / 2)+'px';
+			var iLeft = '0px';
+
+			if (iWinHeight > iWinWidth) { var iSize = iWinHeight+'px'; }
+			else if (iDocHeight > iWinWidth) { var iSize = iWinWidth-20+'px'; }
+		} else {									// we're in a landscape view
+			var iSize = iDocHeight+'px';
+			var iTop = '0px';
+			var iLeft = parseInt((iWinWidth - iDocHeight) / 2)+'px';
+		}
+
+		document.getElementById('imgPage').style.height = iSize;
+		document.getElementById('imgPage').style.width = iSize;				// to maintain 4:1
+		document.getElementById('imgPage').style.top = iTop;
+		document.getElementById('imgPage').style.left = iLeft;
+	}
+
+
+	function processURI() {
+		// a supplemental function for parseURI() so that the proper tab can be clicked
+	}
+
+
+	function showBalloons(intStep) {
+	// controls if the 'welcome' balloons should be shown to a new user
+// UPDATED  2025/06/28
+//		if (Mobile == 1 || getCookie('noballoons')) { return true; }			// don't process any popups on mobile devices -OR- if the user selected not to show any balloons
+		if (Mobile == 1 || Cookie('Obtain','noballoons')) { return true; }			// don't process any popups on mobile devices -OR- if the user selected not to show any balloons
+
+		var balloon = document.getElementById('divBalloon');
+
+		if (intStep == -1) {
+			balloon.style.display='none';														// hide the next balloon from appearing
+// UPDATED  2025/06/28
+//			setCookie('noballoons', '1', new Date('January 1, 2035 00:01:00'), '/');								// indicate the user does not want to show the balloons
+			Cookie('Create','noballoons', '1');								// indicate the user does not want to show the balloons
+			showBalloons(0);															// set the cookie value as if they had all been displayed
+			return true;
+
+		} else if (intStep == 0) {					// blank out all the prior config parameters
+			balloon.className='';
+			balloon.style.left = 'auto';
+			balloon.style.right = 'auto';
+			balloon.style.top = 'auto';
+			balloon.style.bottom = 'auto';
+			balloon.style.marginLeft = 0;
+			balloon.style.marginTop = 0;
+			balloon.innerHTML = "";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow');");
+
+// UPDATED  2025/06/28
+//			setCookie('balloons_webBooks', '8', null, '/');		// prevent the initial balloons from showing any longer by setting a cookie
+			Cookie('Create','balloons_webBooks', '8');		// prevent the initial balloons from showing any longer by setting a cookie
+			return true;
+		} else if (intStep == 1) {
+			balloon.className='balloonTL';
+			balloon.style.left = '50px';
+			balloon.style.top = '95px';
+			balloon.innerHTML = "First we would like to thank you for trying webBooks! These balloons will popup throughout your journey to provide you with relevant information about the interface, and simply clicking anywhere on it will make it disappear. We will begin the tutorial with these tabs. Use them to navigate the various screens of the focused module as they will always be exposed and accessible at any time. The \"?\" tab in particular is found in every module and can be used in the event that any help may be required. Clicking it will load the online documentation for the currently opened module so you can read about any fields that may be difficult to understand at first glance.<br /><br /><center><input type='button' value=\"I've Read Them\" class='button TQButton' onClick=\"showBalloons(-1);\" /></center><br />";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(2)});");
+		} else if (intStep == 2) {
+			balloon.className='balloonTL';
+			balloon.style.left = '150px';
+			balloon.style.right = 'auto';
+			balloon.style.top = '33px';
+			balloon.style.bottom = 'auto';
+			balloon.innerHTML = "Clicking the username here will enable you to create an account if you do not already have one, or it will enable you to adjust various values associated with your account such as your password, alias, and security questions.";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(3)});");
+		} else if (intStep == 3) {
+			balloon.className='balloonTL';
+			balloon.style.left = '50%';
+			balloon.style.top = '64px';
+			balloon.innerHTML = "This listbox contains all of the projects that have been added on the administration screen. By selecting a project from this listing, all of the issues associated with it will be displayed in the table below.";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(4)});");
+		} else if (intStep == 4) {
+			balloon.className='balloonTL';
+			balloon.style.left = '50%';
+			balloon.style.top = '125px';
+			balloon.innerHTML = "After selecting a project from the listbox above, this area will contain all of the outstanding issues associated with it. Clicking on any line will open a new window that contains its history changes, discussion, engineering, and the resolution to the problem. After issues have been added, you will also notice an icon to the far right that can be used to stay notified when an issue has received any updates.";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(5)});");
+		} else if (intStep == 5) {
+			balloon.className='balloonTR';
+			balloon.style.left = 'auto';
+			balloon.style.right = '80px';
+			balloon.style.top = '48px';
+			balloon.innerHTML = "This area contains several objects to interact with the software, the first of which is a listbox above that allows you to login and out. And after logging in, a button will be shown to allow you to create a new issue for the selected project in the listbox to the left. You will also see an 'X' which will close any opened modules. More on this in a moment...";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(6)});");
+		} else if (intStep == 6) {
+			balloon.className='balloonBL';
+			balloon.style.left = '50%';
+			balloon.style.top = 'auto';
+			balloon.style.bottom = '96px';
+			balloon.innerHTML = "Picking up where we left off, these buttons in the taskbar will enable you to switch to different modules if your account has acccess to any. Clicking on any of them will bring that particular module into focus so it can be interacted with.";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(7)});");
+		} else if (intStep == 7) {
+			balloon.className='balloonBR';
+			balloon.style.left = 'auto';
+			balloon.style.right = 'calc(50% + 164px)';
+			balloon.style.top = 'auto';
+			balloon.style.bottom = '28px';
+			balloon.innerHTML = "Finally, use these icons to install additional modules to tailor the software to your needs, share this project, or file a bug or feature request. Also keep in mind that hovering your mouse over these icons and other objects on the form will provide helpful tips!";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(8)});");
+		} else if (intStep == 8) {
+			balloon.className='balloon';
+			balloon.style.left = '50%';
+			balloon.style.right = 'auto';
+			balloon.style.top = '50%';
+			balloon.style.bottom = 'auto';
+			balloon.style.marginLeft = '-140px';
+			balloon.style.marginTop = '-93px';
+			balloon.innerHTML = "We hope that you not only enjoy this software, but continue to use it regularly! Also if you know others that could benefit from using this project as well, please share it with them. And although this software is no longer in beta, if you do come across a bug, we would love to hear from you to get it resolved within the next release or two. So remember to use the footer icons and provide as much feedback as possible!";
+//			balloon.innerHTML = "Please remember that this software is currently in beta which means the software works as designed, but may have a few small bug fixes while adding polish to the application so that your experience will be as enjoyable as possible. This also means that we are currently not adding any new features, although we would still like your submissions for the next release. So remember to use the footer icons and provide as much feedback as possible!";
+			balloon.setAttribute("onclick", "$(this).fadeOut('slow',function(){showBalloons(0)});");
+		}
+
+		balloon.style.display = 'block';
+	}
+
+
+	//-->
+	</script>
+</head>
+
+
+<body onLoad="formLoad();" onResize="formLayout();">
+	<input type="hidden" id="hidSID" value='' />				<!-- used to validate user submissions -->
+	<input type="hidden" id="hidUsername" value='' />			<!-- used to store the logged in username -->
+
+	<img id="imgPage" src="home/${UN}/imgs/bg.svg" />
+	<div id="divBalloon" onClick="$(this).fadeOut('slow');"></div>
+	<div id="divOverlay" class="overlay"></div>				<!-- this is to "blackout" the background for "popups" -->
+	<div id="divCalendar"></div>
+	<div id="divPopup"></div>
+	<ul id="oNotice"></ul>
+
+
+
+
+	<div class='page'>
+		<div class='sidebar'>
+			<ul id='ulSidebar'>
+<!-- LEFT OFF - add in the "id='imgClose_Dashboard'" to the below <img> if mobile==1; and take the 'id' out of the <img> in 'liClose_Dashboard' below too -->
+				<li id='liSidebarClose'><img src='home/${UN}/imgs/close_disabled.png' onClick="Module('close');" />
+				<li onClick="$('#divHeader_Dashboard').toggle();"><label>Status</label>
+				<li onClick="document.getElementById('divOverlay').style.display='block';  for(var i=0; i<Screens.length; i++){ if(document.getElementById('div'+Screens[i]).style.display!='none'){document.getElementById('ulTabs_'+Screens[i]).style.display='block'; document.getElementById('ulButtons_'+Screens[i]).style.display='block'; break;} }"><label>Options</label>
+				<li onClick="document.getElementById('divOverlay').style.display='block'; document.getElementById('divFooter').style.display='block';"><label>Taskbar</label>
+			</ul>
+		</div>
+
+
+
+
+		<div id='divHeader_Dashboard' class='header'>
+			<ul id='ulControls2'>
+				<li id='liStatus_Dashboard'><select id="sStatus_Dashboard" size="1" onChange="Dashboard('status');">		<!-- NOTE: if the user is logging out, it will call that function from Dashboard() -->
+					<option value="in">Clocked In</option>
+					<option value="out">Clocked Out</option>
+					<option value="delayed">Delayed</option>
+					<option value="logout">Logout</option>
+<!-- LEFT OFF - add in an 'close' option that doesn't log the user out of the system, but removes the cookies and such on that device (performs a semi-logout so other logged-in instances still work) -->
+				    </select>
+				<li id='liAvailability_Dashboard'><select id="sAvailability_Dashboard" size="1" onChange="Dashboard('availability');">
+					<option value="yes">Available</option>
+					<option value="no">Unavailable</option>		<!-- generic value if no others fit -->
+					<option value="break">On a Break</option>
+					<option value="meeting">In a Meeting</option>
+					<option value="lunch">At Lunch</option>
+				    </select>
+				<li id='liClose_Dashboard'><img id="imgClose_Dashboard" src="home/${UN}/imgs/close_disabled.png" onClick="Module('close');" title="Close the currently viewed module" />
+			</ul>
+
+			<ul id="ulControls1">
+				<!-- WARNING: had to add additional 'if' in onClick due to FF still processing onClick calls for disabled objects -->
+<!-- UPDATED 2025/10/02		<li id='liSocialToggle'><img id="imgSocial_Dashboard" src="home/${UN}/imgs/webbooks.social_disabled.png" onClick="if(this.disabled==false){Dashboard('toggle');}" title="Switch to the social interface of webBooks" disabled /> -->
+				<li><select id="sLanguage_Dashboard" size="1" onChange="Dashboard('language');">
+					<option value="al">Albanian</option>
+					<option value="ar">Arabic</option>
+					<option value="bn">Bengali</option>
+					<option value="my">Burmese</option>
+					<option value="zh">Chinese</option>
+					<option value="da">Danish</option>
+					<option value="nl">Dutch</option>
+					<option value="en" selected>English</option>
+					<option value="et">Estonian</option>
+					<option value="fi">Finnish</option>
+					<option value="fr">French</option>
+					<option value="de">German</option>
+					<option value="ht">Haitian</option>
+					<option value="hi">Hindi</option>
+					<option value="hu">Hungarian</option>
+					<option value="id">Indonesian</option>
+					<option value="ja">Japanese</option>
+					<option value="jv">Javanese</option>
+					<option value="ko">Korean</option>
+					<option value="no">Norwegian</option>
+					<option value="pt">Portuguese</option>
+					<option value="pa">Punjabi</option>
+					<option value="ru">Russian</option>
+					<option value="sm">Samoan</option>
+					<option value="es">Spanish</option>
+					<option value="sv">Swedish</option>
+					<option value="th">Thai</option>
+					<option value="tr">Turkish</option>
+					<option value="uk">Ukrainian</option>
+					<option value="vi">Vietnamese</option>
+				    </select>
+<!-- VER2 - change to be a flag selection
+				     <ul>
+					<li onClick="Dashboard('toggle');"><img src='home/${UN}/imgs/webbooks.social.png' /><label>&darr;</label>
+					<li data-language="al"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Albanian</label>
+					<li data-language="ar"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Arabic</label>
+					<li data-language="bn"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Bengali</label>
+					<li data-language="my"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Burmese</label>
+					<li data-language="zh"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Chinese</label>
+					<li data-language="da"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Danish</label>
+					<li data-language="nl"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Dutch</label>
+					<li data-language="en"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>English</label>
+					<li data-language="et"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Estonian</label>
+					<li data-language="fi"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Finnish</label>
+					<li data-language="fr"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>French</label>
+					<li data-language="de"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>German</label>
+					<li data-language="ht"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Haitian</label>
+					<li data-language="hi"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Hindi</label>
+					<li data-language="hu"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Hungarian</label>
+					<li data-language="id"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Indonesian</label>
+					<li data-language="ja"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Japanese</label>
+					<li data-language="jv"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Javanese</label>
+					<li data-language="ko"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Korean</label>
+					<li data-language="no"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Norwegian</label>
+					<li data-language="pt"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Portuguese</label>
+					<li data-language="pa"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Punjabi</label>
+					<li data-language="ru"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Russian</label>
+					<li data-language="sm"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Samoan</label>
+					<li data-language="es"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Spanish</label>
+					<li data-language="sv"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Swedish</label>
+					<li data-language="th"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Thai</label>
+					<li data-language="tr"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Turkish</label>
+					<li data-language="uk"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Ukrainian</label>
+					<li data-language="vi"><img src='home/${UN}/imgs/webbooks.social_disabled.png' /><label>Vietnamese</label>
+				    </ul>
+-->
+<!-- VER2 - have the below onClick open the employees module -->
+				<li id='liUserAccount' onClick="showAccount('req');">Guest
+			</ul>
+		</div>
+
+
+
+
+<!-- MOVED 2025/10/01 - merged this into divContainer_Dashboard below as just another 'module'
+		<div id='divContainer_Social' class='container'>
+			<div id='divSocial'>
+				<h1>Social</h1>
+			</div>
+
+			<div id='divProvider_Social' class='Body'><iframe id='sUriSocial' src="about:blank"></iframe></div>
+		</div>
+-->
+
+
+
+
+<!-- LEFT OFF - rename the 'container' class to 'module' -->
+		<div id='divContainer_Dashboard' class='container'>
+<!-- LEFT OFF - can remove <div id's> below and just use the <taskbar> icon index as the <div> to focus instead of calling directly; better generic coding; can also use: getElementsByClass('module').style.display = 'none' && getElementsByClass('module')[taskbar icon index].style.display = 'block' -->
+<!-- UPDATED 2025/10/01			<div id='divDashboard' class='module'> -->
+			<div id='divDashboard'>
+				<h1>Dashboard</h1>
+				<ul id='ulButtons_Dashboard' class='buttons'></ul>
+
+				<ul id='ulTabs_Dashboard' class='tabs'>
+					<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Dashboard','https://wiki.cliquesoft.org/index.php?title=webBooks-Dashboard','ulButtons_Dashboard');" title='Help'>?
+					<li class='liTab liSel' onClick="Module('navigate',Dashboard('employeestop'),this,'divTabs_Dashboard',null,'ulButtons_Dashboard');">Modules
+					<li class='liTab' onClick="Module('navigate',Dashboard('employees'),this,'divTabs_Dashboard',null,'ulButtons_Dashboard');">Employees
+					<li class='liTab' onClick="Module('navigate',Dashboard('employees'),this,'divTabs_Dashboard',null,'ulButtons_Dashboard');">About
+				</ul>
+
+				<div id='divTabs_Dashboard0' class='Body'>
+					<iframe src="about:blank" onLoad="document.body.style.cursor='default';"></iframe>
+				</div>
+
+				<div id='divTabs_Dashboard1' class='Body'>
+					<ul id='ulDashboard' class="Dashboard">
+					</ul>
+<!-- VER2 - implement in a future version
+					<div id="tS2" class="jThumbnailScroller">		<!- - rename 'Quick Glance' bar; as it's referenced in the wiki - ->
+						<div class="jTscrollerContainer">
+							<div class="jTscroller">
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img1.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img2.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img3.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img4.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img5.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img6.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img7.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img8.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img9.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img10.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img11.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img12.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img13.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img14.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img15.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img16.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img17.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img18.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img19.jpg" /></a>
+								<a href="#"><img src="data/${UN}/_theme/images/webbooks.img20.jpg" /></a>
+							</div>
+						</div>
+						<a href="#" class="jTscrollerPrevButton"></a>
+						<a href="#" class="jTscrollerNextButton"></a>
+					</div>
+-->
+				</div>
+
+
+				<div id='divTabs_Dashboard2' class='Body'>
+					<table id='tblEmployees_Dashboard' class="tblDashboard">
+					</table>
+
+					<div id='divWork_Dashboard'>
+						<ul>
+							<li class='liHeader'>Outstanding Work
+						</ul>
+					</div>
+				</div>
+
+
+				<div id='divTabs_Dashboard3' class='Body'>
+					<ul>
+						<li>This application is a web-based management software for projects and businesses that can be tailored to specific needs by installing only desired modules
+						<li>&nbsp;
+						<li>&copy; 2014-<script>document.write(new Date().getFullYear());</script> <a href='https://www.cliquesoft.org/' target='_blank'>Cliquesoft</a>, All Rights Reserved
+						<li>&nbsp;
+						<li><u>Attribution</u>
+						<li>Social icon by <a href='https://www.iconfinder.com/RevZap' target='_new'>RevZap</a> [<a href='https://www.iconfinder.com/icons/270291/email_icon' target='_new'>source</a>]
+						<li>Dashboard icon by unknown
+						<li>Dashboard group icons by <a href='https://www.artua.com/' target='_new'>Artua</a> [<a href='https://www.iconfinder.com/iconsets/macosxstyle' target='_new'>source</a>]
+					</ul>
+				</div>
+			</div>
+
+
+			<div id='divSocial'>
+				<h1 id='h1Title_Social'>Social</h1>
+
+				<ul id='ulButtons_Social' class='buttons fright'></ul>
+
+				<ul id='ulTabs_Social' class='tabs'>
+					<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Social','https://wiki.cliquesoft.org/index.php?title=webBooks-Social','ulButtons_Social');" title='Help'>?
+					<li class='liTab liSel' onClick="Module('navigate',null,this,'divTabs_Social',null,'ulButtons_Social');">Email
+				</ul>
+
+
+				<div id='divTabs_Social0' class='Body'>
+					<iframe src="about:blank" onLoad="document.body.style.cursor='default';"></iframe>
+				</div>
+
+				<div id='divTabs_Social1' class='Body'>
+					<iframe id='sUriSocial' src="about:blank"></iframe>
+				</div>
+			</div>
+
+
+<!-- DEPRECATED 2025/02/16
+			<div id='divAddons'>
+				<h1>Addons</h1>
+				<ul id='ulButtons_Addons' class='buttons fright'></ul>
+				<ul id='ulTabs_Addons' class='tabs'></ul>
+
+				<div id='divTabs_Addons0' class='Body'>
+					<iframe id="ifAddons" allowtransparency="true" scrolling="auto"></iframe>
+				</div>
+			</div>
+
+
+			<div id='divBug'>
+				<h1>Report Bug</h1>
+				<ul id='ulButtons_Bug' class='buttons fright'></ul>
+				<ul id='ulTabs_Bug' class='tabs'></ul>
+
+				<div id='divTabs_Bug0' class='Body'>
+					<iframe id="ifBug" allowtransparency="true" scrolling="auto"></iframe>
+				</div>
+			</div>
+
+
+			<div id='divFeature'>
+				<h1>Request Feature</h1>
+				<ul id='ulButtons_Feature' class='buttons fright'></ul>
+				<ul id='ulTabs_Feature' class='tabs'></ul>
+
+				<div id='divTabs_Feature0' class='Body'>
+					<iframe id="ifFeature" allowtransparency="true" scrolling="auto"></iframe>
+				</div>
+			</div>
+-->
+		</div>
+
+
+
+
+		<div id='divFooter' class='footer'>
+			<ul id="ulTaskbar">
+				<li class='liTab liSel' id='liDashboard' onClick="Module('focus',null,'Dashboard'); Tabs('Select','ulTaskbar',this,'liTab','liSel');"><img id='imgDashboard' title="Dashboard" src="home/${UN}/imgs/dashboard.png" class="Screens" />
+				<li class='liTab' id='liSocial' onClick="Module('focus',null,'Social'); Tabs('Select','ulTaskbar',this,'liTab','liSel');"><img id='imgSocial' title="Social" src="home/${UN}/imgs/social.png" class="Screens" />
+			</ul>
+
+			<ul id="ulStatus">
+<!-- LEFT OFF - the share icons below do NOT work -->
+
+<!-- UPDATED 2025/08/20
+				<li class="liAction"><img src="home/${UN}/imgs/webbooks.share.png" title="Share Project" onClick="showShare('req','project','','webBooks','https://www.cliquesoft.org/#Projects');" />
+				<li class="liAction"><img src="home/${UN}/imgs/webbooks.addons.png" title="Get Add-ons" onClick="Widgets('load',null,'exts');" />
+				<li id="liStatus">&copy; 2014-<script>document.write(new Date().getFullYear());</script> <a href='https://www.cliquesoft.org/' target='_blank'>Cliquesoft</a>, All Rights Reserved.
+				<li class="liAction"><img src="home/${UN}/imgs/webbooks.bug.png" title="Report Bug" onClick="showShare('req','support','','Support','');" />
+				<li class="liAction"><img src="home/${UN}/imgs/webbooks.feature.png" title="Request Feature" onClick="showShare('req','support','','Support','');" />
+-->
+				<li class="liAction"><img src="home/${UN}/imgs/share.png" title="Share Project" onClick="Contact('Others','project','webBooks','https://www.cliquesoft.org/#Projects');" />
+				<li class="liAction"><img src="home/${UN}/imgs/addons.png" title="Get Add-ons" onClick="Widgets('load',null,'exts');" />
+				<li id="liStatus">&copy; 2014-<script>document.write(new Date().getFullYear());</script> <a href='https://www.cliquesoft.org/' target='_blank'>Cliquesoft</a>, All Rights Reserved.
+				<li class="liAction"><img src="home/${UN}/imgs/bug.png" title="Report Bug" onClick="Contact('Others','support','Support Team','support@cliquesoft.org','Reported Bug');" />
+				<li class="liAction"><img src="home/${UN}/imgs/feature.png" title="Request Feature" onClick="Contact('Others','support','Support Team','support@cliquesoft.org','Requested Feature');" />
+			</ul>
+<!-- VER2 - use the below as a status section to display messages, with the below being the default value -->
+<!--			<p class='center'>&copy; 2014 <a href='https://www.cliquesoft.org/' target='_blank'>Cliquesoft</a> All Rights Reserved.</p> -->
+		</div>
+	</div>
+
+
+</body>
+</html>
+

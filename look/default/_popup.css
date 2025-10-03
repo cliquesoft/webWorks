@@ -1,0 +1,199 @@
+#divPopup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -190px;
+  padding: 10px;
+  width: 380px;
+  height: 400px;
+  background-color: #fff;
+/*  background: #fff url("../images/header2.png") -500px 0 no-repeat; */
+  font: 13px verdana;
+  border-radius: 0.6em;
+  overflow: auto;
+  z-index: 1002;					/* NOTE: this has to be higher than the global.css > .overlay > z-index value */
+
+  box-shadow: 0px 0px 10px 1px #000;
+  -ms-box-shadow: 0 0px 10px 1px #000;
+  -moz-box-shadow: 0 0px 10px 1px #000;
+  -webkit-box-shadow: 0 0px 10px 1px #000; }
+.PopupMin {						/* this can be used to shrink the height of the popup by half for smaller prompts */
+/* this segment was moved into default.formats.css on 2017/05/11 */
+  margin-top: -100px !important;
+  height: 200px !important;
+}
+.PopupMin ul li>img { margin-right: 10px; width: 128px; height: 128px; }		/* NOTE: had to add the 'ul li>' in there so that the captcha would display correctly for sharing */
+.PopupMax {
+/* this segment was moved into default.formats.css on 2017/05/11 */
+  margin-top: -250px !important;
+  margin-left: -335px !important;
+  width: 650px !important;				/* NOTE: this takes into account that the div (with padding) is 670px wide */
+  height: 500px !important;
+}
+
+#divPopup h3 {
+	margin: -6px 32px 0 -6px;
+	padding: 7px 10px 8px;
+	text-decoration: underline;
+	background-color: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-top-left-radius: 0.3em;
+}
+#divPopup ul { width: 100%; }
+#divPopup ul li { padding: 3px 0; font-size: 16px; text-align: right;  }
+#divPopup ul li label { float: left; font-size: 13px; margin-top: 5px; }
+
+#divPopup #imgPopupLoading { display: block; margin: 140px 75px; z-index: 10; }
+#divPopup #lblPopupLoading {
+  position: absolute;
+  display: block;
+  margin: 180px 128px;
+  font-size: 40px;
+  font-weight: bold;
+  font-variant: small-caps;
+  opacity: 0.6; }
+
+#divPopupClose {
+  float: right;
+  margin: -10px;
+  width: 38px;
+  font-size: 32px;
+  border-top-right-radius: 0.2em;
+  cursor: pointer;
+  text-align: center;
+  box-shadow:         inset 0 0 15px #000000;
+  -ms-box-shadow:     inset 0 0 15px #000000;
+  -moz-box-shadow:    inset 0 0 15px #000000;
+  -webkit-box-shadow: inset 0 0 15px #000000; }
+#divPopupClose:hover { color: red; }
+
+#divPopup .divBody {
+	position: absolute;
+	top: 50px;
+	bottom: 50px;					/* NOTE: this gives us 10px between the bottom of <p> and the start of the button footer <div> below */
+	left: 10px;
+	right: 4px;
+	margin: 0;
+	padding-right: 7px;
+	text-align: justify;
+	overflow: auto;
+}
+#divPopup .divBody .ulList { margin-bottom: 20px; padding-left: 30px; width: calc(100% - 30px); }
+#divPopup .divBody .ulList li { font-size: 13px; list-style-type: circle !important; text-align: left !important; }
+#divPopup .divBody ul li.liTitle {
+	padding-left: 0;
+	margin-left: 0;
+	color: rgba(255,255,255,0.7);
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: left;
+	list-style-type: none !important;
+}
+#divPopup .divBodyFull { bottom: 10px; }
+
+#divPopup .divButtons {
+	position: absolute;
+	top: auto;
+	bottom: 4px;
+	left: 4px;
+	right: 4px;
+	height: 40px;
+	padding-right: 30px;
+	text-align: right;
+	background-color: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-left-radius: 0.3em;
+	border-bottom-right-radius: 0.3em;
+	box-shadow: 0 0 4px rgba(255,255,255,1);
+}
+#divPopup .divButtons span { float: left; margin: 20px 10px 0; color: rgba(0,0,0,0.4); font-weight: bold; }
+#divPopup .divButtons .textbox { margin-top: 8px; margin-right: 10px; width: 140px; }
+#divPopup .divButtons .button { margin-top: 8px; margin-left: 5px; }
+
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+
+/* Smartphone (portrait and landscape) - CGA (320) to HVGA (480) */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 736px) {
+	#divPopup {
+	   margin-top: -225px;
+	   margin-left: -145px;
+	   width: 310px;
+	   height: 400px;
+	}
+
+	#divPopup,
+	.PopupMin,
+	.PopupMax {
+		top: 10px;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+		margin: auto !important;
+		width: auto !important;
+		height: auto !important;
+		border-radius: 0;
+	}
+
+	#divPopupClose { border-top-right-radius: 0; }
+}
+
+
+/* Smartphone (landscape) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: landscape) {
+}
+
+
+/* Smartphone (portrait) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: portrait) {
+}
+
+
+/* Tablet (portrait and landscape) - PAL (768) to PAL+ (1024) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+}
+
+
+/* Tablet (landscape) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) {
+}
+
+
+/* Tablet (portrait) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: portrait) {
+}
+
+
+/* Desktop/Laptop (landscape) - HD 720 (1280x720), Unnamed (1366x768), WXGA (1280x800) */
+/* Anything else - Unnamed (1440x900), Unnamed (1600x900), WSXGA+ (1680x1050), HD 1080 (1920x1080), WUXGA (1920x1200) */
+/* NOTE: we 'min-device-width > 736' so that cell phones aren't triggered */
+@media only screen 
+and (min-device-width: 737px)
+and (min-height: 720px) {
+}
+

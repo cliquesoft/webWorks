@@ -1,0 +1,148 @@
+/* General Styling */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees0,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees2,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees5,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees6 { display: none; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees0 { overflow: hidden; }
+
+
+/* 'General' Tab Styling */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #sGender_Employees { width: 42px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #nSSN_Employees { width: 70px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #bHomeMobileSMS_Employees { margin-left: 5px; vertical-align: bottom; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #bHomeMobileEmail_Employees { margin-left: 4px; vertical-align: bottom; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #bWorkMobileSMS_Employees { margin-left: 5px; vertical-align: bottom; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #bWorkMobileEmail_Employees { margin-left: 4px; vertical-align: bottom; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #lstQuestion01,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #lstQuestion02,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #lstQuestion03 { width: 308px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #txtQuestion01,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #txtQuestion02,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #txtQuestion03,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #txtAnswer01,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #txtAnswer02,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #txtAnswer03 { width: 300px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 ul li.question { display: none; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees1 #sModuleList_Employees { float: right; min-height: 200px; }
+
+
+/* 'Looks' Tab Styling */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees2 #sSkinsList_Employees,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees2 #sThemesList_Employees,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees2 #sIconsList_Employees { float: right; min-height: 400px; }
+
+
+/* 'Time' Tab Styling */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #nLeaveHour_Employees,
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #nLeaveMin_Employees { width: 16px; text-align: center; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #sLeaveHalf_Employees { width: 40px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees { float: left; margin: 0 10px; width: 350px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees th { border-bottom: 1px solid #808080; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees .thName { width: 190px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees .thType { width: 40px; text-align: center; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees .thDate { width: 120px; text-align: center; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees .radFilterDate { margin: 2px 2px 0; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees .radFilterDateBefore { float: left; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees3 #tblTime_Employees .radFilterDateAfter { float: right; }
+
+
+/* 'Notes' Tab Styling */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 form { width: 100%; } 
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 form table { border-bottom: 1px solid #000; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes { margin: 0 auto; border-collapse: collapse; border-spacing: 0; width: calc(100% - 60px); }	/* so both tables line up horizontally */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .thDateLong { width: 200px; max-width: 200px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .thName { width: 200px; max-width: 200px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .thDesc { min-width: 400px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .textbox { width: calc(100% - 10px); }			/* 8px = 6px in padding, 2px for side borders, 2px for margin */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .listbox { width: calc(100% - 2px); }			/* 2px = 2px for margin */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes #sNote_Employees { height: 17px; width: calc(100% - 8px); }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes { width: 100%; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes table tr td { padding: 5px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: top; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes table tr td:last-child { white-space: normal; overflow: auto; text-align: left; }
+/*.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes table tr:first-child td { padding-top: 0; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes table tr:last-child td { padding-bottom: 0; } */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes table tr:hover { background-color: rgba(80,80,80,0.3); color: #fff; }
+
+
+/* 'Data' Tab Styling */
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees5 #divData_Employees { margin-top: 15px; }
+.page #divContainer_Dashboard #divEmployees #divTabs_Employees5 #divData_Employees .ulColData #btnCustomFileAdd_Employees { width: 119px; }
+
+
+
+
+
+
+
+
+/* MOBILE */
+
+/*
+	NOTE: the widths for larger screens are based on a 16:9 resolution
+
+	http://stackoverflow.com/questions/18477016/switching-css-classes-based-on-screen-size
+	https://en.wikipedia.org/wiki/Display_resolution#/media/File:Vector_Video_Standards8.svg
+	http://stackoverflow.com/questions/6747242/what-is-the-difference-between-max-device-width-and-max-width-for-mobile-web
+	http://www.javascriptkit.com/dhtmltutors/cssmediaqueries2.shtml
+	https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+	http://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+*/
+
+/* Smartphone (portrait and landscape) - CGA (320) to HVGA (480) */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 736px) {
+	.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .thDateLong { display: inline-block; min-width: 50%; width: 50%; max-width: 50%; }
+	.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .thName { display: inline-block; min-width: 50%; width: 50%; max-width: 50%; }
+	.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .tblNotes .thDesc { display: block; min-width: 100%; width: 100%; max-width: 100%; }
+	.page #divContainer_Dashboard #divEmployees #divTabs_Employees4 .divNotes table tr:nth-child(odd) { background-color: rgba(80,80,80,0.3); color: #fff; }
+}
+
+
+/* Smartphone (landscape) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: landscape) {
+}
+
+
+/* Smartphone (portrait) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: portrait) {
+}
+
+
+/* Tablet (portrait and landscape) - PAL (768) to PAL+ (1024) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+}
+
+
+/* Tablet (landscape) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) {
+}
+
+
+/* Tablet (portrait) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: portrait) {
+}
+
+
+/* Desktop/Laptop (landscape) - HD 720 (1280x720), Unnamed (1366x768), WXGA (1280x800) */
+/* Anything else - Unnamed (1440x900), Unnamed (1600x900), WSXGA+ (1680x1050), HD 1080 (1920x1080), WUXGA (1920x1200) */
+/* NOTE: we 'min-device-width > 736' so that cell phones aren't triggered */
+@media only screen 
+and (min-device-width: 737px)
+and (min-height: 720px) {
+}
+

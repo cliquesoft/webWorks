@@ -1,0 +1,61 @@
+#divSignin {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -190px;
+	padding: 10px;
+	width: 380px;
+	height: 400px;
+	background-color: #fff;
+	font: 13px verdana;
+	border-radius: 0.6em;
+	overflow: auto;
+	box-shadow: 0px 0px 10px 1px #000; }
+
+#divSignin h3 {
+	margin: -6px -6px 0 -6px;
+	padding: 7px 10px 8px;
+	text-decoration: underline;
+	background-color: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-top-left-radius: 0.3em;
+	border-top-right-radius: 0.2em;
+}
+#divSignin ul { width: 100%; }
+#divSignin ul li { padding: 2px 0; font-size: 16px; text-align: right;  }
+#divSignin ul li label { float: left; font-size: 13px; margin-top: 5px; }
+#divSignin div {
+	position: absolute;
+	top: 50px;
+	bottom: 10px;
+	left: 10px;
+	right: 4px;
+	margin: 0;
+	padding-right: 7px;
+	text-align: justify;
+	overflow: auto;
+}
+
+#divSignin #liMessage { display: none; cursor: pointer; }
+#divSignin #liMessage .fail { display: inline-block; margin: 15px; padding: 10px; overflow: auto; }
+#divSignin #formLogin #Username,
+#divSignin #formLogin #Password { width: 193px; text-align: center; }
+#divSignin #formLogin #sCaptcha { margin-right: 4px; width: 98px; text-align: center; }
+#divSignin #formLogin #oRefresh { margin-right: 4px; padding: 2px; width: 22px; height: 22px; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.3em; vertical-align: top; }
+#divSignin #formLogin #oRefresh:hover { border: 1px solid rgba(0,0,0,0.4); cursor: pointer; }
+#divSignin #formLogin #oLogin { width: 60px; }
+#divSignin #formLogin #oCaptcha { border: 1px solid #8eb4f2; border-radius: 0.3em; }
+
+#divSignin #formServices #sResetKey,
+#divSignin #formServices #sUnlockKey { margin-right: 4px; }
+#divSignin #formServices #sResetValue,
+#divSignin #formServices #sUnlockValue,
+#divSignin #formServices #sAnswer { margin-right: 4px; width: 150px; }
+#divSignin #formServices #oReset,
+#divSignin #formServices #oUnlock,
+#divSignin #formServices #oSubmit { width: 70px; }
+#divSignin #formServices .liChallenge { display: none; }
+
+#divFunding { display: none; }
+

@@ -1,0 +1,331 @@
+	<h1>Employees</h1>
+	<ul id='ulButtons_Employees' class='buttons fright'>
+		<li><input type='button' value='New' class='button' onClick="clearEmployee_Employees('req');" />
+		<li><input type='button' value='Save' class='button' onClick="saveEmployee_Employees('req');" />
+	</ul>
+
+	<ul id='ulTabs_Employees' class='tabs'>
+		<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Employees','https://wiki.cliquesoft.org/index.php?title=webBooks-Employees','ulButtons_Employees');" title='Help'>?
+		<li class='liTab liSel' onClick="Module('navigate',null,this,'divTabs_Employees',null,'ulButtons_Employees','Clear',&quot;clearEmployee_Employees('req')&quot;,'Save',&quot;saveEmployee_Employees('req')&quot;);">General
+		<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Employees',null,'ulButtons_Employees');">Looks
+		<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Employees',null,'ulButtons_Employees');">Time
+		<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Employees',null,'ulButtons_Employees');">Notes
+		<li class='liTab' onClick="Module('navigate',null,this,'divTabs_Employees',null,'ulButtons_Employees');">Data
+	</ul>
+
+
+	<div id='divTabs_Employees0' class='Body'>
+		<iframe src="about:blank" onLoad="document.body.style.cursor='default';"></iframe>
+	</div>
+
+
+<!-- LEFT OFF - add in the security questions and answers boxes
+	UPDATE: keep these out of view for security reasons.  they should be stored, but not where anyone can see them (for security reasons);  we can, however, add in a "confirmation pin" to validate their account instead of these questions
+ -->
+	<div id='divTabs_Employees1' class='Body'>
+		<form id='formEmployee_Employees' action='' style='border: 1px solid red;'>
+		<ul class='ulCol'>
+			<li><label>Employee name</label><select id='lstMatches_Employees' size='10' class='matches' onChange="selectMatch('hidID_Employees','sName_Employees','lstMatches_Employees',function(){Employees('load',null,document.getElementById('hidID_Employees').value)})"></select><input type="hidden" id="hidID_Employees" value='0' /><input type="textbox" id="sName_Employees" maxlength="128" class="textbox OFTextbox searchable" onBlur="validate(this,null,'![=<>;]','Employee Name',1);" onClick="document.getElementById('lstMatches_Employees').style.display='none';" onKeyUp="if(event.keyCode==8 && this.value==''){clearResults_Employees(); clearEmployee_Employees('req'); return true;} else if(document.getElementById('hidID_Employees').value=='0'){search4Results('r',_sUriProject+'code/_search.php','','Employees','name','sName_Employees','lstMatches_Employees','',1);}" />
+<!-- VER2		<li><label class='lblSub'>(coming soon)</label><input type="textbox" id="sOPoID_Employees" placeholder="" maxlength="64" class="textbox TTTextbox" onBlur="validate(this,null,'[^a-zA-Z0-9_\.\-]','OPoID Value',1);" /><input type="button" id="objRequest_Employees" value="Request" class="button OTButton space" />
+			<li><input type="textbox" id="sOPoStatus_Employees" maxlength="128" class="textbox OFTextbox" /> -->
+			<li>&nbsp;
+			<li>&nbsp;
+			<li><label>Gender, SSN, DOB</label><select id="sGender_Employees" size="1" class="listbox">
+				<option value="male">M</option>
+				<option value="female">F</option>
+			    </select><input type="textbox" id="nSSN_Employees" maxlength="9" class="textbox space center encrypted" onBlur="validate(this,null,'[^0-9]','Social Security Number (SSN)',1);" /><input type="textbox" id="eDOB_Employees" maxlength="10" class="textbox date space" onClick="showCalendar('eDOB_Employees',event,1);" onBlur="validate(this,null,'[^0-9\-]','Date of Birth (DOB)',1);" />
+			<li><label>Race &amp; Marriage</label><select id="sRace_Employees" size="1" class="combobox OHCombobox">
+				<option value="african">African</option>
+				<option value="asian">Asian</option>
+				<option value="caucasian">Caucasian</option>
+				<option value="hispanic">Hispanic</option>
+				<option value="indian">Indian</option>
+				<option value="me">Middle Eastern</option>
+				<option value="na">Native American</option>
+				<option value="mr">Mixed Race</option>
+				<option value="pi">Pacific Islander</option>
+				<option value="other">Other</option>
+			    </select><select id="sMarried_Employees" size="1" class="combobox OHCombobox space">
+				<option value="single">Single</option>
+				<option value="married">Married</option>
+			    </select>
+			<li><label>Drivers license</label><input type="textbox" id="sDriversLicense_Employees" maxlength="24" class="textbox OFTextbox encrypted" onBlur="validate(this,null,'[^a-zA-Z0-9]','Drivers License Number',1);" />
+			<li><label>With, Allow, Deps</label><input type="textbox" id="nWithheld_Employees" maxlength="8" class="textbox OQTextbox center" title="Additional withholdings to keep out of every paycheck" onBlur="validate(this,null,'[^0-9\.]','Additional Witholdings',1);" /><input type="textbox" id="nAllowance_Employees" maxlength="8" class="textbox OQTextbox space center" title="Declare personal allowances here" onBlur="validate(this,null,'[^0-9]','Peronal Allowances',1);" /><input type="textbox" id="nDependents_Employees" maxlength="2" class="textbox OQTextbox space center" title="Specify the number of dependants in your household" onBlur="validate(this,null,'[^0-9]','Number of Dependants',1);" />
+			<li>&nbsp;
+			<li><label>Home phone</label><input type="textbox" id="nHomePhone_Employees" placeholder="Home" maxlength="15" class="textbox OHTextbox encrypted" onBlur="validate(this,null,'[^0-9]','Home Phone Number',1);" />
+			<li><label>Mobile phone</label><input type="textbox" id="nHomeMobile_Employees" placeholder="Mobile" maxlength="15" class="textbox OHTextbox encrypted" onBlur="validate(this,null,'[^0-9]','Mobile Phone Number',1);" /><input type="checkbox" id="bHomeMobileSMS_Employees" /><label class='fnone' onClick="document.getElementById('bHomeMobileSMS_Employees').click();">SMS</label><input type="checkbox" id="bHomeMobileEmail_Employees" /><label class='fnone' onClick="document.getElementById('bHomeMobileEmail_Employees').click();">Mail</label>
+			<li><label>Email address</label><input type="textbox" id="sHomeEmail_Employees" placeholder="Email" maxlength="128" class="textbox OFTextbox encrypted" onBlur="validate(this,null,'[^a-zA-Z0-9_\.@\-]','Home Email Address',1);" />
+			<li><label>Home address</label><input type="textbox" id="sHomeAddr1_Employees" placeholder="Address Line 1" maxlength="48" class="textbox OFTextbox encrypted" onBlur="validate(this,null,'![=<>]','Home Address Line 1',1);" />
+			<li><input type="textbox" id="sHomeAddr2_Employees" placeholder="Address Line 2" maxlength="48" class="textbox OFTextbox" onBlur="validate(this,null,'![=<>]','Home Address Line 2',1);" />
+			<li><input type="textbox" id="sHomeCity_Employees" placeholder="City" maxlength="48" class="textbox city" onBlur="validate(this,null,'[^a-zA-Z \-]','Home Address City',1);" /><input type="textbox" id="sHomeState_Employees" placeholder="St" maxlength="2" class="textbox state" onBlur="validate(this,null,'[^a-zA-Z]','Home Address State',1);" /><input type="textbox" id="sHomeZip_Employees" placeholder="Zip" maxlength="10" class="textbox zip" onBlur="validate(this,null,'[^a-zA-Z0-9]','Home Address Zipcode',1);" />
+			<li><select id="sHomeCountry_Employees" size="1" class="listbox OFListbox">
+				<option value="us">United States of America</option>
+				<option value="au">Australia</option>
+				<option value="ca">Canada</option>
+				<option value="eu">Europe</option>
+			    </select>
+			<li>&nbsp;
+			<li><label>Work phone</label><input type="textbox" id="nWorkPhone_Employees" placeholder="Work" maxlength="15" class="textbox OHTextbox" onBlur="validate(this,null,'[^0-9]','Work Phone Number',1);" /><input type="textbox" id="nWorkExt_Employees" maxlength="7" placeholder="Ext" class="textbox OHTextbox space" onBlur="validate(this,null,'[^0-9]','Work Phone Extension',1);" />
+			<li><label>Mobile phone</label><input type="textbox" id="nWorkMobile_Employees" placeholder="Mobile" maxlength="15" class="textbox OHTextbox" onBlur="validate(this,null,'[^0-9]','Work Mobile Number',1);" /><input type="checkbox" id="bWorkMobileSMS_Employees" /><label class='fnone' onClick="document.getElementById('bWorkMobileSMS_Employees').click();">SMS</label><input type="checkbox" id="bWorkMobileEmail_Employees" /><label class='fnone' onClick="document.getElementById('bWorkMobileEmail_Employees').click();">Mail</label>
+			<li><label>Email address</label><input type="textbox" id="sWorkEmail_Employees" placeholder="Email" maxlength="128" class="textbox OFTextbox" onBlur="validate(this,null,'[^a-zA-Z0-9_\.@\-]','Work Email Address',1);" />
+			<li><label>Work address</label><input type="textbox" id="sWorkAddr1_Employees" placeholder="Address Line 1" maxlength="48" class="textbox OFTextbox" onBlur="validate(this,null,'![=<>]','Work Address Line 1',1);" />
+			<li><span><input type="button" id="btnCopyHomeAddr_Employees" value="Same as Home" class="button OHButton disabled" disabled onClick="copyData('sHomeAddr1_Employees','sWorkAddr1_Employees','sHomeAddr2_Employees','sWorkAddr2_Employees','sHomeCity_Employees','sWorkCity_Employees','sHomeState_Employees','sWorkState_Employees','sHomeZip_Employees','sWorkZip_Employees','sHomeCountry_Employees','sWorkCountry_Employees');" /></span><input type="textbox" id="sWorkAddr2_Employees" placeholder="Address Line 2" maxlength="48" class="textbox OFTextbox" onBlur="validate(this,null,'![=<>]','Work Address Line 2',1);" />
+			<li><input type="textbox" id="sWorkCity_Employees" placeholder="City" maxlength="48" class="textbox city" onBlur="validate(this,null,'[^a-zA-Z \-]','Work Address City',1);" /><input type="textbox" id="sWorkState_Employees" placeholder="St" maxlength="2" class="textbox state" onBlur="validate(this,null,'[^a-zA-Z]','Work Address State',1);" /><input type="textbox" id="sWorkZip_Employees" placeholder="Zip" maxlength="10" class="textbox zip" onBlur="validate(this,null,'[^a-zA-Z0-9]','Work Address Zipcode',1);" />
+			<li><select id="sWorkCountry_Employees" size="1" class="listbox OFListbox">
+				<option value="us">United States of America</option>
+				<option value="au">Australia</option>
+				<option value="ca">Canada</option>
+				<option value="eu">Europe</option>
+			    </select>
+			<li>&nbsp;
+		   </ul>
+
+		   <ul class='ulCol'>
+			<li><label>Work location</label><select id="nWorkLocation_Employees" size="1" class="listbox OFListbox">
+				<option value='0'>_HEADQUARTERS_</option>	<!-- this is a fixed value to indicate the employees work location is the head quarters -->
+			    </select>
+			<li><label>Department</label><select id="sDept_Employees" size="1" class="listbox OFListbox" onChange="loadPositions_Employees('req');"></select>
+			<li><label>Supervisor</label><select id="sSupervisor_Employees" size="1" class="listbox OFListbox">
+				<option value='0'>_NONE_</option>		<!-- this is a fixed value to indicate the position doesn't have a manager (e.g. CEO) -->
+			    </select>
+			<li><label>Position</label><select id="sJobTitle_Employees" size="1" class="listbox OFListbox" onChange="loadPositionInfo_Employees('req');"></select>
+<!-- all the below values allow fine-tuning of a particular employee from the defaults setup in Business Configuration -->
+			<li><label>Pay type &amp; terms</label><select id="sPayTerms_Employees" size="1" class="listbox OHListbox">
+				<option value="part-time">Part-time</option>
+				<option value="full-time">Full-time</option>
+				<option value="contractor">Sub-contractor</option>
+				<option value="call">On call</option>
+				<option value="internship">Internship</option>
+				<option value="volunteer">Volunteer</option>
+			    </select><select id="sPayType_Employees" size="1" class="listbox OHListbox space">
+				<option value="hourly">Hourly</option>
+				<option value="salary">Salary</option>
+				<option value="salary+ot">Salary + overtime</option>
+				<option value="commission">Commission</option>
+				<option value="commission+base">Commission + base</option>
+				<option value="job">By the job</option>
+				<!-- <option value="piece">By the piece</option>	this is the same as 'by the job' -->
+			    </select>
+			<li><label>Standard &amp; OT pay</label><input type="textbox" id="nStandardPay_Employees" maxlength="10" class="textbox OHTextbox right" title="The job pay for the position" onBlur="validate(this,null,'[^0-9\.]','Standard Pay',1);" /><input type="textbox" id="nOTPay_Employees" maxlength="5" class="textbox OQTextbox space center" title="The rate at which overtime should be calculated (1.5 or 2 are typical values)" onBlur="validate(this,null,'[^0-9\.]','Overtime Pay (OT)',1);" />
+			<li><label>Leave increments</label><input type="textbox" id="nSickLeave_Employees" maxlength="5" class="textbox OQTextbox center" title="The rate of sick leave received over each pay period" onBlur="validate(this,null,'[^0-9\.]','Sick Leave',1);" /><input type="textbox" id="nPersonalLeave_Employees" maxlength="5" class="textbox OQTextbox space center" title="The rate of personal time off received over each pay period" onBlur="validate(this,null,'[^0-9\.]','PTO Leave',1);" />
+			<li><label>COLA &amp; Reimbursement</label><input type="textbox" id="nCOLA_Employees" placeholder="COLA" maxlength="5" class="textbox OQTextbox center" title="The annual cost of living increase rate" onBlur="validate(this,null,'[^0-9\.]','COLA Rate',1);" /><input type="textbox" id="nMileage_Employees" placeholder="Miles" maxlength="5" class="textbox OQTextbox space center" title="The mileage reimbursement rate" onBlur="validate(this,null,'[^0-9\.]','Mileage Reimbursement Rate',1);" /><input type="textbox" id="nPerDiem_Employees" placeholder="Travel" maxlength="10" class="textbox OQTextbox space center" title="The per diem allotted per day of travel" onBlur="validate(this,null,'[^0-9\.]','Per Diem Allotment',1);" />
+			<li><label>Hired &amp; Manager</label><input type="textbox" id="eHired_Employees" maxlength='10' class="textbox OHTextbox center" onClick="showCalendar('eHired_Employees',event,3);" onBlur="validate(this,null,'[^0-9\-]','Employee Hire Date',1);" /><select id="nManager_Employees" size="1" class="listbox OQCombobox space">
+				<option value='1'>Yes</option>
+				<option value='0'>No</option>
+			    </select>					<!-- this enables certain form objects to be edited (e.g. standard and OT pay on this screen) or viewed (e.g. by an employee that shouldn't be allowed to edit certain fields) -->
+<!--			<li>&nbsp; -->
+			<li><label>Username</label><input type="textbox" id="sUsername_Employees" maxlength="128" class="textbox OFTextbox" onBlur="validate(this,null,'[^a-zA-Z0-9@\._\-]','Username',1);" />
+			<li><label>Password</label><input type="password" id="sPassword_Employees" maxlength="24" class="textbox OHTextbox" title="The password used by the account to log into webBooks" onBlur="validate(this,null,'![=<>]','Password',1);" /><input type="password" id="sConfirm_Employees" maxlength="24" class="textbox OHTextbox space" title="This is the confirmation password" onBlur="validate(this,null,'![=<>]','Confirm Password',1);" />
+			<li><label>Account status</label><div id="divInvalidLogins_Employees" class="textbox OHTextbox space center" title="How many invalid failed attempts have been made before a successful login">Attempts</div><select id="sAccountStatus_Employees" size="1" class="combobox OHCombobox">
+				<option value="verifying">Verifying</option>
+				<option value="active">Active</option>
+				<option value="locked">Locked</option>
+				<option value="suspended">Suspended</option>
+			    </select>
+			<li><div id="divUpdated_Employees" class="textbox OHTextbox space center" title="When the account was last updated">Updated</div><div id="divCreated_Employees" class="textbox OHTextbox center" title="When the account was created">Created</div>
+			<li><label>Current login</label><div id="divCurrentLogin_Employees" class="textbox OFTextbox center" title="The date of time of the employees current login">&nbsp;</div>
+			<li><label>Last login</label><div id="divLastLogin_Employees" class="textbox OFTextbox center" title="When the employee last logged into the system">&nbsp;</div>
+<!--			<li><label>Startup module</label><select id="sStartupModule_Employees" size="1" class="combobox TQCombobox">
+			    </select><select id="bResume_Employees" size="1" class="combobox OQCombobox space">
+				<option value="1">Yes</optin>
+				<option value="0">No</option>
+			    </select>
+-->
+<!--			<li>&nbsp; -->
+			<li><label>Pay</label><div id="divYTDPay_Employees" class="textbox OHTextbox space center" title="Year-to-date pay">&nbsp;</div><div id="divTPPPay_Employees" class="textbox OHTextbox space center" title="The prior pay periods' pay">&nbsp;</div>
+			<li><div id="divYTDCom_Employees" class="textbox OHTextbox space center" title="Year-to-date commissions">&nbsp;</div><div id="divTPPCom_Employees" class="textbox OHTextbox space center" title="The prior pay periods' commissions">&nbsp;</div>
+			<li><div id="divYTDReimb_Employees" class="textbox OHTextbox space center" title="Year-to-date reimbursements">&nbsp;</div><div id="divTPPReimb_Employees" class="textbox OHTextbox space center" title="The prior pay periods' reimbursements">&nbsp;</div>
+<!-- LEFT OFF - the below was removed since the layout wouldn't be correct
+			<div id="divTPPHours_Employees" class="textbox OQTextbox space center" title="This pay periods' work hours">&nbsp;</div><div id="divYTDHours_Employees" class="textbox OQTextbox space center" title="Year-to-date work hours">&nbsp;</div>
+-->
+			<li><label>Accrued leave</label><div id="divYTDASick_Employees" class="textbox OQTextbox space center" title="Remaining year-to-date accrued sick leave">&nbsp;</div><div id="divTPPASick_Employees" class="textbox OQTextbox space center" title="The prior pay periods' accrued sick leave">&nbsp;</div><div id="divYTDAPTO_Employees" class="textbox OQTextbox space center" title="Remaining year-to-date accrued PTO">&nbsp;</div><div id="divTPPAPTO_Employees" class="textbox OQTextbox space center" title="The prior pay periods' accrued PTO">&nbsp;</div>
+			<li><label>Used leave</label><div id="divYTDUSick_Employees" class="textbox OQTextbox space center" title="Year-to-date used sick leave">&nbsp;</div><div id="divTPPUSick_Employees" class="textbox OQTextbox space center" title="The prior pay periods' used sick leave">&nbsp;</div><div id="divYTDUPTO_Employees" class="textbox OQTextbox space center" title="Year-to-date used PTO">&nbsp;</div><div id="divTPPUPTO_Employees" class="textbox OQTextbox space center" title="The prior pay periods' used PTO">&nbsp;</div>
+			<li><label>Donated leave</label><div id="divYTDDSick_Employees" class="textbox OQTextbox space center" title="Year-to-date donated sick leave">&nbsp;</div><div id="divTPPDSick_Employees" class="textbox OQTextbox space center" title="The prior pay periods' donated sick leave">&nbsp;</div><div id="divYTDDPTO_Employees" class="textbox OQTextbox space center" title="Year-to-date donated PTO">&nbsp;</div><div id="divTPPDPTO_Employees" class="textbox OQTextbox space center" title="The prior pay periods' donated PTO">&nbsp;</div>
+			<li><label class='lblSub'>Donate...</label><select id="nEmployeeList_Employees" size="1" class="listbox OFListbox" title="The employee that will receive your donated leave"></select>
+			<li><input type="textbox" id="nDonateAmount_Employee" value="0" maxlength="3" class="textbox OQTextbox center" title="Hours of time to donate to another co-worker" onBlur="validate(this,null,'[^0-9]','Donatation Hours',1);" /><select id="sDonateType_Employees" size="1" class="combobox OQCombobox space" title="Which type of leave do you wish to donate">
+				<option value='pto'>PTO</option>
+				<option value='sick'>Sick</option>
+			    </select><input type="button" id="btnDonate_Employees" value="Donate" class="button OHButton space disabled" disabled onClick="donateTime_Employees('req');" />
+			<li>&nbsp;
+		   </ul>
+
+<!-- LEFT OFF - the answers to these need to be hidden due to security (e.g. a malicious employee can see these question/answers of employees); they can be updated, but only by submitting new values (so the employee can update question/answers here)
+	ADD - add a randomy generated PIN that the user can be prompted for to validate
+ -->
+		   <ul class='ulCol'>
+<!-- LEFT OFF - these are NOT FILLED out with non-native accounts (for security) -->
+			<li><label>Security Question 1</label>&nbsp;
+			<li><label>&nbsp;</label><select id='lstQuestion01' size='1' class='listbox encrypted' onChange="document.getElementById('txtQuestion01').value=this.options[this.selectedIndex].value; if(this.value==''){$(this).parent().next().show('slow')}else{$(this).parent().next().hide('slow')}">
+				<option value="What is your high school mascot?">What is your high school mascot?</option>
+				<option value="What is your father's middle name?">What is your father's middle name?</option>
+				<option value="What is your best friend's name?">What is your best friend's name?</option>
+				<option value="What is the first car you owned?">What is the first car you owned?</option>
+				<option value="What is the last name of your favorite teacher?">What is the last name of your favorite teacher?</option>
+				<option value="">Custom Question</option>
+			    </select>
+			<li class='question'><label>&nbsp;</label><input type='textbox' id='txtQuestion01' maxlength='128' class='textbox encrypted' placeholder='Question' value="What is your high school mascot?" onBlur="validate(this,null,'![=<>;]','Question 1',1);" />
+			<li><label>&nbsp;</label><input type='textbox' id='txtAnswer01' maxlength='32' class='textbox encrypted' placeholder='Answer' value='' onBlur="validate(this,null,'![=<>;]','Answer 1',1);" />
+			<li><label>Security Question 2</label>&nbsp;
+			<li><label>&nbsp;</label><select id='lstQuestion02' size='1' class='listbox encrypted' onChange="document.getElementById('txtQuestion02').value=this.options[this.selectedIndex].value; if(this.value==''){$(this).parent().next().show('slow')}else{$(this).parent().next().hide('slow')}">
+				<option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+				<option value="Who is your favorite all-time entertainer?">Who is your favorite all-time entertainer?</option>
+				<option value="What is your favorite pet's name?">What is your favorite pet's name?</option>
+				<option value="What is the name of the hospital where you were born?">What is the name of the hospital where you were born?</option>
+				<option value="Where did you graduate from high school?">Where did you graduate from high school?</option>
+				<option value="">Custom Question</option>
+			    </select>
+			<li class='question'><label>&nbsp;</label><input type='textbox' id='txtQuestion02' maxlength='128' class='textbox encrypted' placeholder='Question' value="What is your mother's maiden name?" onBlur="validate(this,null,'![=<>;]','Question 2',1);" />
+			<li><label>&nbsp;</label><input type='textbox' id='txtAnswer02' maxlength='32' class='textbox encrypted' placeholder='Answer' value='' onBlur="validate(this,null,'![=<>;]','Answer 2',1);" />
+			<li><label>Security Question 3</label>&nbsp;
+			<li><label>&nbsp;</label><select id='lstQuestion03' size='1' class='listbox encrypted' onChange="document.getElementById('txtQuestion03').value=this.options[this.selectedIndex].value; if(this.value==''){$(this).parent().next().show('slow')}else{$(this).parent().next().hide('slow')}">
+				<option value="What is the name of the street where you grew up?">What is the name of the street where you grew up?</option>
+				<option value="What is your favorite place to visit?">What is your favorite place to visit?</option>
+				<option value="What is your favorite song?">What is your favorite song?</option>
+				<option value="Who is your favorite author?">Who is your favorite author?</option>
+				<option value="What was your first job?">What was your first job?</option>
+				<option value="">Custom Question</option>
+			    </select>
+			<li class='question'><label>&nbsp;</label><input type='textbox' id='txtQuestion03' maxlength='128' class='textbox encrypted' placeholder='Question' value="What is the name of the street where you grew up?" onBlur="validate(this,null,'![=<>;]','Question 3',1);" />
+			<li><label>&nbsp;</label><input type='textbox' id='txtAnswer03' maxlength='32' class='textbox encrypted' placeholder='Answer' value='' onBlur="validate(this,null,'![=<>;]','Answer 3',1);" />
+		</ul>
+		</form>
+
+		<form id='formAccess_Employees' action=''>
+<!-- LEFT OFF - these are only shown to admin accounts -->
+		<ul class='ulCol'>
+			<li><label>Module access</label><select id="sModuleList_Employees" size="2" class="combobox OFCombobox disabled" disabled onChange="loadAccess_Employees('req');"></select>
+			<li><label class='lblSub'><input type="checkbox" id="chkRead_Employees" disabled /> Read</label>
+			<li><label class='lblSub'><input type="checkbox" id="chkWrite_Employees" disabled /> Write</label>
+			<li><label class='lblSub'><input type="checkbox" id="chkAddRecords_Employees" disabled /> Add records</label>
+			<li><label class='lblSub'><input type="checkbox" id="chkDelRecords_Employees" disabled /> Delete records</label>
+			<li><label class='lblSub'><input type="button" id="btnSaveAccess_Employees" value="Save" class="button OTButton disabled" disabled onClick="updateAccess_Employees('req');" /></label>
+		</ul>
+		</form>
+	</div>
+
+
+	<div id='divTabs_Employees2' class='Body'>
+		<form id='formLooks_Employees' action=''>
+		<ul class='ulCol'>
+			<li><label>Installed skins</label><select id="sSkinsList_Employees" size="2" class="combobox OFCombobox disabled" disabled onChange="updateLooks_Employees('req','Skin');"></select>
+<!-- LEFT OFF - fill in the functionality for the below buttons -->
+			<li><span><input type="button" id="btnSkinAdd_Employees" value="+" title="Add" class="button OEButton disabled" disabled onClick="" /></span>
+<!--
+	the below was removed since we will be relying on the 'widgets' screen to uninstall
+<input type="button" id="btnSkinDel_Employees" value="-" title="Delete" class="button OEButton space disabled" disabled onClick="" />
+-->
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Installed themes</label><select id="sThemesList_Employees" size="2" class="combobox OFCombobox disabled" disabled onChange="updateLooks_Employees('req','Theme');"></select>
+<!-- LEFT OFF - fill in the functionality for the below buttons -->
+			<li><span><input type="button" id="btnThemeAdd" value="+" title="Add" class="button OEButton disabled" disabled onClick="" /></span>
+<!--
+	the below was removed since we will be relying on the 'widgets' screen to uninstall
+<input type="button" id="btnThemeDel_Employees" value="-" title="Delete" class="button OEButton space disabled" disabled onClick="" />
+-->
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+			<li>&nbsp;
+		</ul>
+
+		<ul class='ulCol'>
+			<li><label>Installed icons</label><select id="sIconsList_Employees" size="2" class="combobox OFCombobox" onMouseDown="this.priorIndex=this.selectedIndex;" onChange="updateLooks_Employees('req','Icons');" priorIndex='0'></select>
+<!-- LEFT OFF - fill in the functionality for the below buttons -->
+			<li><span><input type="button" id="btnIconsAdd_Employees" value="+" title="Add" class="button OEButton disabled" disabled onClick="" /></span>
+<!--
+	the below was removed since we will be relying on the 'widgets' screen to uninstall
+<input type="button" id="btnIconsDel_Employees" value="-" title="Delete" class="button OEButton space disabled" disabled onClick="" />
+-->
+		</ul>
+		</form>
+	</div>
+
+
+	<div id='divTabs_Employees3' class='Body'>
+		<form id='formTime_Employees' action=''>
+		<ul class='ulCol'>
+			<li><label>Create/Adjust</label><input type="textbox" id="eLeaveDate_Employees" maxlength="10" class="textbox date" onClick="Application('calendar',null,event);" onBlur="validate(this,null,'[^0-9\-]','Timesheet Date',1);" title="The date that the timesheet record with occur" /><input type="textbox" id="nLeaveHour_Employees" maxlength="2" class="textbox space" title="The hour that will start the timesheet record" onBlur="validate(this,null,'[^0-9]','Timesheet Hour',1);" />:<input type="textbox" id="nLeaveMin_Employees" maxlength="2" class="textbox" title="The minute that will start the timesheet record" onBlur="validate(this,null,'[^0-9]','Timesheet Minute',1);" /><select id="sLeaveHalf_Employees" size="1" class="listbox space"><option value="am">am</option><option value="pm">pm</option></select><input type="textbox" id="eLeaveHours_Employees" maxlength="5" class="textbox OQTextbox center space" title="The number of hours that the timesheet record will cover" onBlur="validate(this,null,'[^0-9\.]','Timesheet Duration',1);" />
+			<li><input type="textbox" id="sLeaveMemo_Employees" maxlength="64" placeholder='Leave Memo' class="textbox OFTextbox" onBlur="validate(this,null,'![=<>;]','Timesheet Memo',1);" /><select id="sLeaveType_Employees" size="1" class="listbox OTListbox space"><option value="in">In</option><option value="out">Out</option><option value="pto">PTO</option><option value="sick">Sick</option><option value='unpaid'>Unpaid</option></select><input type='button' id='btnLeaveSave_Employees' value='Save' class='button OQButton space' onClick="updateTime_Employees('req');" />
+			<li>&nbsp;
+		</ul>
+		</form>
+		<table id='tblTime_Employees'>
+			<tr><td class='thName'><input type='button' id='btnClearWork_Employees' value='*' class='button OEButton' title="Clear all the entered time entry" onClick="document.getElementById('formTime_Employees').reset(); $('input[name=radTimeID_Employees]').attr('checked',false);" /><input type='button' id='btnDelWork_Employees' value='-' class='button OEButton space' title="Delete the selected time entry" onClick="delTime_Employees('req');" /></td><td class='thType'>&nbsp;</td><td class='thDate'><input type='radio' name='bFilterWorkDate_Employees' id='bFilterWorkDateBefore_Employees' value='before' class='radFilterDate radFilterDateBefore' title="Filters the below list with all matches before the entered date" onClick="filterTimeRecords_Employees('req');" /><input type='radio' name='bFilterWorkDate_Employees' id='bFilterWorkDateAfter_Employees' value='after' class='radFilterDate radFilterDateAfter' checked title="Filters the below list with all matches after the entered date" onClick="filterTimeRecords_Employees('req');" /><input type='textbox' id='eFilterWorkDate_Employees' maxlength='10' class='textbox date' onClick="showCalendar('eFilterWorkDate_Employees',event,1,&quot;filterTimeRecords_Employees('req');&quot;);" onBlur="validate(this,null,'[^0-9\-]','Timesheet Filter Date',1);" title="Enter a date in which to filer the below list (blank disables)" /></td></tr>
+			<tr><td colspan='3'>&nbsp;</td></tr>
+			<tr><th class='thName'>Creator</th><th class='thType'>Type</th><th class='thDate'>Occurred</th></tr>
+		</table>
+	</div>
+
+
+	<div id='divTabs_Employees4' class='Body'>
+		<form id='formNotes_Employees' action=''>
+		<table class='tblNotes'>
+			<tr><td class='thDateLong'><select id="sNoteAccess_Employees" size="1" class="listbox disabled" disabled><option value="everyone">_EVERYONE_</option><option value="managers">_MANAGERS_</option></select></td><td class='thName'><div id='divCreator_Employees' class='textbox disabled' disabled>&nbsp;</div></td><td class='thDesc'><textarea id="sNote_Employees" maxlength='3072' class="textbox disabled" disabled onBlur="validate(this,null,'![=<>;]','Note',1);"></textarea></td></tr>
+			<tr><th class='thDateLong tdFilter'>Date</th><th class='thName tdFilter'>Creator</th><th class='thDesc tdFilter'>Note</th></tr>
+		</table>
+		</form>
+
+		<div id='divNotes_Employees' class='divNotes'>
+			<table id='tblNotes_Employees' class='tblNotes'></table>
+		</div>
+	</div>
+
+
+	<div id='divTabs_Employees5' class='Body'>
+		<div id='divFileDrop_Employees' class="dropbox" onClick="this.getElementsByClassName('fd-file')[0].click()">	<!-- NOTE: since the generated <file> is hidden, the onClick here triggers to upload -->
+<!--			<img id="imgClose" src="home/${UN}/imgs/tracker.close.png" onClick="if(event.stopPropagation){event.stopPropagation();} event.cancelBubble=true; document.getElementById('lblTitle').click();" /> -->
+			<span class="message">To upload, click this box or drag-and-drop files here from your file manager.</span>
+			<div class="multiple"><input type="checkbox" id="multiple" title="Checking this box will enable multiple file selections when uploading" onClick="if(event.stopPropagation){event.stopPropagation();} event.cancelBubble=true;" /></div>
+		</div>
+<!--
+	   <div id='divFileDrop_Employees' class="dropbox" style="background: transparent url(data/_guest/_theme/images/webbooks.blue_line.jpg) repeat-x;">
+		<span class="message">To upload, click this box or drag-and-drop files here from your file manager.</span>
+		<div class="multiple"><input type="checkbox" id="multiple" title="Checking this box will enable multiple file selections when uploading"></div>
+	   </div>
+-->
+	   <div id='divData_Employees' class='divDetails'>
+		<ul class='ulColData'>
+			<li class='right'><input type='button' id='btnCustomFileAdd_Employees' value='Add New Entry' class='button' title="Add a new file upload entry below" onClick="addDataFields('divTabs_Employees4')" />
+			<li class='liDataTemplate hide'><span><input type='textbox' id='sCustomFileTitle_Employees' class='OFTextbox desc' maxlength='48' placeholder='File Title' onBlur="validate(this,null,'[^a-zA-Z0-9 _\.@\-]','File Title',1);" /></span><select id="sCustomFilename_Employees" size="1" class="listbox OFListbox"></select><input type='button' id='btnCustomFileUpdate_Employees' value='Update' class='button OTButton space' title="Save this associated file for the customer account" onClick="updateDataFields('req','divTabs_Employees4','Employees',6,intIndex,document.getElementById('sCustomFileTitle_Employees').value,document.getElementById('sCustomFilename_Employees').options[document.getElementById('sCustomFilename_Employees').selectedIndex].value,document.getElementById('hidID_Employees').value,0);" /><input type='button' id='btnCustomFileDel_Employees' value='-' class='button OEButton space' title="Delete this associated file from the customer account" onClick="delDataFields('divTabs_Employees4','Employees',6,intIndex)" /><input type='button' id='btnCustomFileEncrypt_Employees' value='E' class='button OEButton space disabled' disabled title="Encrypt this associated file" />
+			<li><label>Employee Photo</label><select id="sEmployeePhoto_Employees" size="1" class="listbox OFListbox"></select><input type='button' id='btnEmployeePhoto_Employees' value='Update' class='button OTButton space' title="Save this associated file for the customer account" onClick="updateDataFields('req','divTabs_Employees4','Employees',6,'','Employee Photo',document.getElementById('sEmployeePhoto_Employees').options[document.getElementById('sEmployeePhoto_Employees').selectedIndex].value,document.getElementById('hidID_Employees').value,0);" /><input type='button' id='' value='-' class='button OEButton space disabled' disabled title="Delete this associated file from the customer account" /><input type='button' id='' value='E' class='button OEButton space disabled' disabled title="Encrypt this associated file" />
+			<li><label>Social Security Card</label><select id="sSSNCard_Employees" size="1" class="listbox OFListbox"></select><input type='button' id='sSSNCard_Employees' value='Update' class='button OTButton space' title="Save this associated file for the customer account" onClick="updateDataFields('req','divTabs_Employees4','Employees',6,'','Social Security Card',document.getElementById('sSSNCard_Employees').options[document.getElementById('sSSNCard_Employees').selectedIndex].value,document.getElementById('hidID_Employees').value,0);" /><input type='button' id='' value='-' class='button OEButton space disabled' disabled title="Delete this associated file from the customer account" /><input type='button' id='' value='E' class='button OEButton space disabled' disabled title="Encrypt this associated file" />
+			<li><label>Drivers License</label><select id="sDriversLicenseID_Employees" size="1" class="listbox OFListbox"></select><input type='button' id='sDriversLicenseID_Employees' value='Update' class='button OTButton space' title="Save this associated file for the customer account" onClick="updateDataFields('req','divTabs_Employees4','Employees',6,'','Drivers License',document.getElementById('sDriversLicenseID_Employees').options[document.getElementById('sDriversLicenseID_Employees').selectedIndex].value,document.getElementById('hidID_Employees').value,0);" /><input type='button' id='' value='-' class='button OEButton space disabled' disabled title="Delete this associated file from the customer account" /><input type='button' id='' value='E' class='button OEButton space disabled' disabled title="Encrypt this associated file" />
+			<li><label>Employee Resume</label><select id="sResume_Employees" size="1" class="listbox OFListbox"></select><input type='button' id='sResume_Employees' value='Update' class='button OTButton space' title="Save this associated file for the customer account" onClick="updateDataFields('req','divTabs_Employees4','Employees',6,'','Employee Resume',document.getElementById('sResume_Employees').options[document.getElementById('sResume_Employees').selectedIndex].value,document.getElementById('hidID_Employees').value,0);" /><input type='button' id='' value='-' class='button OEButton space disabled' disabled title="Delete this associated file from the customer account" /><input type='button' id='' value='E' class='button OEButton space disabled' disabled title="Encrypt this associated file" />
+		</ul>
+	   </div>
+<!--
+these are licenses that the employee may have (e.g. contractor licenses, etc)
+same as above, but for certifications (e.g. MCP, MCSE, etc)
+-->
+	</div>
+

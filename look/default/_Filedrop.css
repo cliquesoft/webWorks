@@ -1,0 +1,103 @@
+/*--------------------------
+	FileDrop Element
+--------------------------*/
+
+.fd-zone {				/* Essential FileDrop zone element configuration: */
+	position: relative;
+	overflow: hidden;
+	width: 100px;
+	height: 100%;			/* this setting doesn't seem to affect the object */
+	z-index: 2;
+}
+.fd-zone.over { }			/* Provides visible feedback when use drags a file over the drop zone: */
+
+
+.fd-file {				/* Hides <input type="file"> while simulating "Browse" button: */
+	visibility: hidden;		/* this is what actually gets clicked, so we just render this so it does NOT interfere with visuals */
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+
+
+.dropbox {				/* this is the object that is actually shown and interacted with */
+/*
+	display: none;
+	position: absolute;
+	top: 0;
+	width: calc(100% - 2px);
+*/
+position: relative;
+margin: 0 auto;
+width: calc(100% - 60px);
+	height: 356px;
+	background-color: rgba(0,0,0,0.2);
+	cursor: pointer;
+	border: 1px solid rgba(0,0,0,0.5);
+/*	border-radius: 0.4em; */
+	box-shadow: inset 0px 0px 5px 1px #fff;
+	overflow: auto;
+	background: transparent url('../imgs/_Filedrop.jpg') repeat-x;
+}
+
+.dropbox #imgClose {
+	position: absolute;
+	right: 10px;
+	margin-top: 5px;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.dropbox .message {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -18px;
+	margin-left: 10%;
+	width: 80%;
+	font-size: 18px;
+	text-align: center;
+}
+
+.dropbox .multiple {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 11;
+}
+
+
+
+
+/*--------------------------
+	Uploaded Items
+--------------------------*/
+
+.dropbox .Filedrop {
+	display: inline-block;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #808080;
+	border-radius: 0.5em;
+	overflow: hidden;
+	z-index: 100px;
+}
+
+.dropbox .Filedrop img { margin: 0 5px; }
+
+
+
+
+/*--------------------------
+	Progress Bars
+--------------------------*/
+
+.dropbox .Filedrop .ProgressBar {
+	display: block;
+	width: 0;
+	height: 10px;
+	background-color: rgba(0,0,0,0.4);
+}
+

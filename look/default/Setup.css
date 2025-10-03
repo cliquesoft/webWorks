@@ -1,0 +1,89 @@
+body { overflow: auto; }
+
+.combobox { width: 308px; }
+.textbox { width: 300px; }
+
+a:link, a:visited, a:active { color: #fff; }
+
+.button { padding-left: 10px; padding-right: 10px; }
+
+h1 {
+	margin-bottom: 0;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	text-decoration: none;
+}
+h1 img {
+	float: right;
+	margin-right: 4px;
+	cursor: pointer;
+}
+
+
+
+
+.header {
+	position: static;					/* change the _global.css declaration */
+	margin: 0 auto 15px;
+	padding: 10px;
+	height: auto;						/* unsets the _global.css declaration */
+	width: 500px;
+	min-height: 85px;					/* retains minimum height from _global.css */
+	overflow: auto;						/* unsets the _global.css declaration */
+	background: rgba(0,0,0,0.2);
+	text-align: justify;
+}
+
+.container {
+	position: static;					/* change the _global.css declaration */
+	height: 100%;
+	overflow: auto;						/* unsets the _global.css declaration */
+}
+
+.container ul {
+	margin: 0 auto;
+	width: 500px;
+}
+
+.container ul li {
+	padding-top: 2px;					/* specified like this so the '_global.css > .liSub' works correctly */
+	padding-bottom: 2px;
+	text-align: right;
+}
+.container ul li.liEmail { display: none; }
+.container ul li:nth-child(4),
+.container ul li:nth-child(21),
+.container ul li:nth-child(31),
+.container ul li:nth-child(38) { margin-top: 5px; }
+
+
+
+
+#liApplication,
+#liServer,
+#liMappings,
+#liMigration {
+	display: none;
+	border-bottom: 1px solid #ccc;
+}
+#liApplication p,
+#liServer p,
+#liMappings p,
+#liMigration p {
+	margin: 5px;
+	padding: 5px;
+	background: rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0.2);
+}
+
+
+
+
+#divPopup img {
+	margin: 0;
+	padding-right: 20px;
+	width: 128px;
+	height: 128px;
+}
+
+

@@ -1,0 +1,726 @@
+
+
+
+/*		LEFT OFF - move things like 'fleft','fright','textbox','button',... into _constants.css; the rest of the definitions go into Application.css			*/
+
+
+
+
+
+
+
+
+
+/* OBJECTS */
+
+* { margin: 0; padding: 0; }
+
+
+html {
+/*	NOTE: if we use “min-height: 100%” instead of just “height: 100%” here, then the content of
+	#Body will extend beyond the height of the window, with the background expanding as well.
+
+	http://www.tutwow.com/htmlcss/quick-tip-css-100-height/
+*/
+  height: 100%;
+  min-width: 985px;
+  min-height: 450px; }
+
+
+body {
+  /* height: 100%;			this causes problems when using the 'Print' tab with 'Quotes & Invoices' */
+  font: 14px verdana;
+  color: #444;
+  background-color: #fff;
+  cursor: default;
+  overflow: hidden;
+}
+
+
+a, a:link, a:visited, a:active { color: #555; font-weight: bold; text-decoration: none; }
+a:hover { color: #76A7DC; }
+
+
+blockquote {  }
+
+
+.button {
+  margin-top: 0 !important;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.2);
+
+  border: 1px solid rgba(0,0,0,0.4);
+  border-radius: 0.3em;
+  box-shadow: inset 0 0 4px #fff;				/* , 0 0 8px rgba(0,0,0,0.5) */
+  -o-box-shadow: inset 0 0 4px #fff;
+  -ms-box-shadow: inset 0 0 4px #fff;
+  -moz-box-shadow: inset 0 0 4px #fff;
+  -webkit-box-shadow: inset 0 0 4px #fff; }
+.button:hover { background-color: rgba(0,0,0,0.4); border: 1px solid rgba(0,0,0,0.6); }
+
+
+.checkbox, .radio { margin-right: 5px; }			/* used so the alignment becomes correct; position: absolute; */
+
+
+.combobox, .listbox, .password, .textbox, .textarea {		/* the combobox are multi-row listboxes */
+  font-size: 14px;
+  background-color: transparent;
+  color: #0055e3;
+  border: 1px solid #8eb4f2;
+
+  border-radius: 0.3em;
+
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.3); }			/* , 0 0 2px rgba(0,0,0,0.5) */
+  /* all the specifics are in separate css files */
+.combobox, .listbox { padding: 3px 0; }
+.password, .textbox { padding: 4px 3px; }
+.toggle {							/* the password element toggle image */
+	position: absolute;
+	margin-left: -24px;
+	padding: 5px 4px 3px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #444;
+  text-decoration: underline;
+  text-align: center; }
+
+h2 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left; }
+
+h3 { }
+
+
+img { }
+
+
+p { margin-bottom: 20px; text-align: justify; }
+
+
+ul { list-style: none; }
+															ul li { padding: 1px 0; }			/* DEBUG: border: 1px solid red; */
+															ul li label { float: left; margin-top: 5px; }	/* DEBUG: border: 1px solid black; */
+															ul li span { float: left; }			/* DEBUG: border: 1px solid black; */
+ul li.liSub,			/* LEFT OFF - rename .Child */
+ul li label.lblSub { padding-left: 12px; color: #aaa; }	/* applicable @ label level; li "sub-category" */
+
+
+#divBalloon {
+  display: none;
+  position: absolute;
+  padding: 5px 10px;
+  width: 280px;
+  font-size: 12px;
+  color: #ddd;
+  background-color: rgba(0,0,0,0.75);
+  border: 1px solid rgba(0,0,0,0.3);
+  text-align: justify;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,1);
+}
+.balloon {
+  border-radius: 0.5em;
+}
+.balloonTL {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+.balloonTR {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+.balloonBL {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0.5em;
+}
+.balloonBR {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0;
+}
+
+
+.background { }						/* the universal background image for the project */
+
+.even { }						/* definitions for even items in a list */
+.odd {							/* definitions for odd items in a list */
+  padding: 10px 0;
+  border-radius: 0.5em; }
+
+.first { width: 40px; }
+.middle { width: 40px; margin-left: 2px; }
+.last { width: 80px; margin-left: 2px; }
+.suffix { width: 20px; margin-left: 2px; }
+
+.date { width: 68px !important; text-align: center !important; }	/* for all textboxes used to enter dates */
+.city { width: 105px; }					/* for all textboxes used to specify a city */
+.state { margin-left: 3px; width: 20px; text-align: center; }		/* same as above for State */
+.zip { margin-left: 3px; width: 45px; text-align: center; }		/* same as above for zip codes */
+.note { color: #bbb; font-size: 10px; }			/* for any object used to enter notes */
+
+.overlay {						/* for darkening the background for popup messages */
+  display: none;
+  position: fixed;					/* http://stackoverflow.com/questions/13532894/css-overlay-div-not-stretching-to-document-height */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1001; }
+.info {							/* general message popup */
+/*
+  margin: 80px 26px 15px;
+  padding: 12px 0 12px 57px;
+*/
+/*
+margin: 15px;
+padding: 10px;
+*/
+  border: 1px solid #7ca0bf;
+  background: #f0f7fa url(../imgs/default/webbooks.info.png) 15px 5px no-repeat;
+/*
+  border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  overflow: auto;
+*/
+  opacity: 0.8;
+text-align: center !important;
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+.fail {							/* failure message popup */
+/*
+  margin: 80px 26px 15px;
+  padding: 12px 0 12px 57px;
+*/
+  border: 1px solid #ff0000;
+  background: #ffadad url(../imgs/default/webbooks.errs.png) 15px 5px no-repeat;
+/*
+  border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  overflow: auto;
+*/
+  opacity: 0.8;
+text-align: center !important;
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+.succ {							/* success message popup */
+/*
+  margin: 80px 26px 15px;
+  padding: 12px 0 12px 57px;
+*/
+/*
+margin: 15px;
+padding: 10px;
+*/
+  border: 1px solid #a9d260;
+  background: #fafff1 url(../imgs/default/webbooks.succ.png) 15px 5px no-repeat;
+/*
+  border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  overflow: auto;
+*/
+  opacity: 0.8;
+text-align: center !important;
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+.warn {							/* warning message popup */
+/*
+  margin: 80px 26px 15px;
+  padding: 12px 0 12px 57px;
+*/
+/*
+margin: 15px;
+padding: 10px;
+*/
+  border: 1px solid #e6e600;
+  background: #ffffe6 url(../images/webbooks.warn.png) 15px 5px no-repeat;
+/*
+  border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  overflow: auto;
+*/
+  opacity: 0.8;
+text-align: center !important;
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+
+
+
+
+/* LAYOUT */
+
+.page { overflow: hidden; }			/* definitions for the overall page/wrapper */
+
+#imgPage {					/* NOTE: can't use 'background-image' as it doesn't provide the desired functionality */
+  position: absolute;
+  border-width: 0;
+  height: 100%;					/* NOTE: this works, but can't figure out a css centering technique */
+  opacity: 0.2;
+  z-index: -1; }
+
+
+#divLoading { margin: 145px auto; width: 200px; text-align: center; }
+.imgPopupLoading { display: block;  }
+.lblPopupLoading {
+  position: absolute;
+  left: 50%;
+  margin-top: 70px;
+  color: #eee;
+  text-shadow: 0 2px 3px #555;
+  font-family: 'shit_happens_cursive';
+  font-size: 50px;
+  font-weight: bold;
+  font-style: italic; }
+
+
+.sidebar {					/* definitions for the right-hand side bar of the page */
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 45px;
+  color: #555;
+  font-weight: bold;
+  overflow: auto;
+  z-index: 2;
+
+  border-left: 1px solid #808080;
+  background: -moz-linear-gradient(right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);							/* FF3.6+ */
+  background: -webkit-gradient(linear, top right, bottom left, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)));	/* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);							/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);							/* Opera 11.10+ */
+  background: -ms-linear-gradient(right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);							/* IE10+ */
+  background: linear-gradient(right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);								/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );		/* IE6-9 */
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+
+
+.header {					/* definitions for the header of the page */
+  position: absolute;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  height: 85px;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+  overflow: hidden;
+
+  border: 1px solid #808080;
+  border-top-width: 0;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);	/* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);	/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);		/* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);		/* IE10+ */
+  background: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);		/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+
+
+.body { }
+
+
+.footer {					/* definitions for the footer of the page */
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 85px;
+  overflow: hidden;
+
+  border: 1px solid #808080;
+  border-bottom-width: 0;
+  border-top-right-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);	/* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);	/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);		/* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);		/* IE10+ */
+  background: linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);		/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+
+
+.container {					/* definitions for containers (typically between header and footer) 				LEFT OFF - change this to .Module; add .Group to each <form> and style in here */
+  position: absolute;
+  top: 30px;
+  bottom: 100px;
+  left: 0px;
+  right: 0px;
+  min-height: 225px;
+  overflow: hidden; }
+.container .Header { }				/* headers within a .container */
+.container .Body {				/* contents of the .container (even the modules via their HTML) */
+  display: block;
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 30px;					/* the below group does permit centering of the content - http://stackoverflow.com/questions/485827/css-100-height-with-padding-margin */
+  right: 30px;
+  margin: 0 auto;
+/*						   this was removed since changing to the ulCol being 'inline-block'; this no longer matters to keep them centered
+  max-width: 1150px;				   was originally 1120px, but was updated to allow for scrollbars */
+  text-align: center;
+  overflow: auto; }
+.container .Footer { }				/* footers within a .container */
+
+
+.title {					/* definitions for titlebars throughout the project */
+  margin: 20px 0;
+  padding: 10px;
+  text-align: center;
+
+  border-radius: 0.5em;
+  border: 1px solid #6FCEF4;
+  box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5); }
+
+
+.tabs {						/* definitions for the tabs container used in the project 		LEFT OFF - change .tab > .Tabs */
+  position: absolute;
+  margin: 12px 0 0 35px; }
+.tabs .liTab {					/* definitions for each tabs						LEFT OFF - change .liTab > .Tab */
+  display: inline;
+  margin: 0 1px;
+  padding: 4px 9px;
+  border: 1px solid #666;
+  color: #eee;
+  font-weight: bold;
+
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+
+  background: -moz-radial-gradient(center, ellipse cover, rgba(187,187,187,1) 0%, rgba(0,0,0,0) 100%);		/* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(187,187,187,1)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(187,187,187,1) 0%,rgba(0,0,0,0) 100%);	/* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, rgba(187,187,187,1) 0%,rgba(0,0,0,0) 100%);		/* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, rgba(187,187,187,1) 0%,rgba(0,0,0,0) 100%);		/* IE10+ */
+  background: radial-gradient(center, ellipse cover, rgba(187,187,187,1) 0%,rgba(0,0,0,0) 100%);		/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbbbbb', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  cursor: pointer; }
+.tabs .liSel {					/* definitions for the selected tab(s) */
+  padding-bottom: 7px;
+  color: #666;
+  border: 1px solid #555;
+  background: #fff;
+  border-bottom: 1px solid #bdbdbd;
+  cursor: default;
+
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.3) 100%);		/* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(30%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0.3))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 30%,rgba(255,255,255,0.3) 100%);		/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 30%,rgba(255,255,255,0.3) 100%);		/* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 30%,rgba(255,255,255,0.3) 100%);		/* IE10+ */
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 30%,rgba(255,255,255,0.3) 100%);		/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); }	/* IE6-9 */
+
+
+
+
+/* ENHANCEMENTS */
+
+.disabled, .disabled:hover {			/* definitions for disabled form objects */
+  color: #bbb !important;
+  background-color: #e8e8e8 !important;
+  cursor: default !important;
+  border: 1px solid #bbb !important;
+  opacity: 0.4; }
+
+.show { display: block !important; }
+.hide { display: none !important; }
+
+.bold { font-weight: bold !important; }
+.italic { font-style: italic !important; }
+.underline { text-decoration: underline !important; }
+.bottomline { border-bottom: 1px solid #808080 !important; }	/* used if you want to add 'underline' to something (e.g. <li>, <td>, ...) */
+.capitalize { text-transform: capitalize !important; }
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+
+.right { text-align: right !important; }
+.center { text-align: center !important; }
+.left { text-align: left !important; }
+.justify { text-align: justify !important; }
+
+.cleft  { clear: left !important; }
+.cright { clear: right !important; }
+.cboth  { clear: both !important; }
+.fleft  { float: left !important; }
+.fright { float: right !important; }
+.fnone  { float: none !important; }
+.noover { overflow: hidden !important; }
+.curved { border-radius: 0.4em !important; }
+
+.uroman { list-style-type: upper-roman !important; }
+.lroman { list-style-type: lower-roman !important; }
+.ulatin { list-style-type: upper-latin !important; }
+.llatin { list-style-type: lower-latin !important; }
+.ualpha { list-style-type: upper-alpha !important; }
+.lalpha { list-style-type: lower-alpha !important; }
+.decimal { list-style-type: decimal !important; }
+.disc { list-style-type: disc !important; }
+.circle { list-style-type: circle !important; }
+.square { list-style-type: square !important; }
+.nolist { list-style-type: none !important; }
+
+.OEButton { width: 22px !important; }				/* 1/8 width button (for +/-)					LEFT OFF - change these to numeric: OEButton > 18Button */
+.OQButton { width: 48px !important; }				/* 1/4 width button */
+.OTButton { width: 65px !important; }				/* 1/3 width button */
+.OHButton { width: 99px !important; }				/* 1/2 width button */
+.TTButton { width: 133px !important; }				/* 2/3 width button */
+.TQButton { width: 150px !important; }				/* 3/4 width button */
+.OFButton { width: 202px !important; }				/* One Full width button					LEFT OFF - set this value for the .button and remove this (likewise with the .textbox, .listbox, ...) */
+.OQCombobox, .OQListbox { width: 48px !important; }		/* 1/4 width combobox */
+.OTCombobox, .OTListbox { width: 65px !important; }		/* 1/3 width combobox */
+.OHCombobox, .OHListbox { width: 99px !important; }		/* 1/2 width combobox; 2px in border */
+.TTCombobox, .TTListbox { width: 133px !important; }		/* 2/3 width combobox */
+.TQCombobox, .TQListbox { width: 150px !important; }		/* 3/4 width combobox */
+.OFCombobox, .OFListbox { width: 202px !important; }		/* One Full width combobox */
+.OQTextbox { width: 41px !important; }				/* 1/4 width textbox */
+.OTTextbox { width: 57px !important; }				/* 1/3 width textbox */
+.OHTextbox { width: 91px !important; }				/* 1/2 width textbox; 2px in border, 6px in left/right padding */
+.TTTextbox { width: 125px !important; }				/* 2/3 width textbox */
+.TQTextbox { width: 142px !important; }				/* 3/4 width textbox */
+.OFTextbox { width: 194px !important; }				/* One Full textbox */
+
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+
+/*
+	NOTE: the widths for larger screens are based on a 16:9 resolution
+
+	http://stackoverflow.com/questions/18477016/switching-css-classes-based-on-screen-size
+	https://en.wikipedia.org/wiki/Display_resolution#/media/File:Vector_Video_Standards8.svg
+	http://stackoverflow.com/questions/6747242/what-is-the-difference-between-max-device-width-and-max-width-for-mobile-web
+	http://www.javascriptkit.com/dhtmltutors/cssmediaqueries2.shtml
+	https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+	http://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+*/
+
+/* Smartphone (portrait and landscape) - CGA (320) to HVGA (480) */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 736px) {
+	html {
+		min-width: 350px;
+		max-width: 400px;
+		min-height: 100px;
+	}
+
+	h1 { font-size: 24px; }
+
+	#imgPage {
+		/* display: none; */
+		display: block;
+		margin: auto;
+		width: 100%;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.sidebar {					/* this is for navigation menu */
+		position: fixed;
+		display: block;
+		top: 1px;
+	}
+
+	.header {					/* this is for the "Status" Bar */
+		top: 0;
+		left: 0;
+		right: 46px;
+		border-left-width: 0;
+		border-right-width: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.footer {					/* this is for the "Taskbar" */
+		display: none;
+		top: 75px;
+		bottom: 10px;
+		left: 10px;				/* unset this value */
+		right: 56px;
+		height: auto;
+		border-radius: 0.5em;
+		overflow: auto;				/* convert to a scrollable list */
+		z-index: 1002;				/* get above the divOverlay */
+	}
+.footer2 {
+		top: 1px;
+		bottom: 0;
+		left: inherit;				/* unset this value */
+		right: 0;
+		margin-right: -30px;			/* Google Chrome bug? */
+		width: 80px;
+		height: 689px;				/* Google Chrome bug? */
+}
+
+	.container { bottom: 0; right: 46px; }
+
+	.tabs {						/* this is for the "Options" menu */
+		display: none;
+		top: 44px;
+		bottom: 10px;
+		left: 10px;				/* unset this value */
+		right: 10px;
+		margin: 0;				/* unset this value */
+		overflow: auto;				/* convert to a scrollable list */
+		z-index: 1002;				/* get above the divOverlay */
+
+		background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);		/* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);	/* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);		/* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);		/* IE10+ */
+		background: linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);		/* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+		box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+		-o-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+		-ms-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+		-moz-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+		-webkit-box-shadow: inset 0 0 4px #fff, 0 0 8px rgba(0,0,0,0.5);
+	}
+	.tabs .liTab {
+		padding: 10px 0;
+		color: #808080;
+		font-size: 20px;
+		text-align: center;
+		border: 1px solid #808080;
+		border-radius: 0;
+		background: transparent;
+	}
+	.tabs .liSel { color: #fff; }
+}
+
+
+/* Smartphone (landscape) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: landscape) {
+	.tabs .liTab {
+		display: inline-block;
+		margin: 10px 0 0 10px;
+		width: calc(50% - 17px);
+	}
+	.tabs .liTabLast { margin-bottom: 10px; }
+}
+
+
+/* Smartphone (portrait) */
+@media only screen 
+and (max-device-width: 736px)
+and (orientation: portrait) {
+	.tabs .liTab {
+		display: block;
+		margin: 5px 10px;
+		width: auto;
+	}
+	.tabs .liTabFirst { margin: 10px 10px 5px; }
+	.tabs .liTabLast { margin: 5px 10px 10px; }
+}
+
+
+/* Tablet (portrait and landscape) - PAL (768) to PAL+ (1024) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+}
+
+
+/* Tablet (landscape) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) {
+}
+
+
+/* Tablet (portrait) */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: portrait) {
+}
+
+
+/* Desktop/Laptop (landscape) - HD 720 (1280x720), Unnamed (1366x768), WXGA (1280x800) */
+/* Anything else - Unnamed (1440x900), Unnamed (1600x900), WSXGA+ (1680x1050), HD 1080 (1920x1080), WUXGA (1920x1200) */
+/* NOTE: we 'min-device-width > 736' so that cell phones aren't triggered */
+@media only screen 
+and (min-device-width: 737px)
+and (min-height: 720px) {
+}
+

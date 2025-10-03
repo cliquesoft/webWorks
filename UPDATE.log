@@ -1,0 +1,173 @@
+ANNOUNCEMENTS
+
+  2025.10.01
+- Overhauled the messaging in the UI from using alert()'s to now having a
+  nice looking popup or notice listing.
+- Added a 'Groups' tab to 'Application Settings' and re-arranged the
+  location of various parts of the 'General' and 'Modules' tab
+- Removed the 'Printers' section from 'System Configuration'
+- Moved the other 'SystemConfiguration' database tables into the
+  'Application Settings' module
+- Moved 'Associated', 'Commerce', 'Contacts', 'Data', 'FrieghtAccounts',
+  'Notes', and 'Specs' to being 'Application' tables
+- Renamed the database table 'Uploads' to 'Data' (to match Tab names)
+- Removed the 'SystemConfiguration' database table so the 'General' tab
+  now completely utilizes the config.php file
+- Add the 'Logs' tab to ApplicationSettings
+- Added a language choice listbox, but will require Module Maker to fully
+  implement
+- Remove Social from being an independant screen to being another "main"
+  icon in the taskbar
+- Updated the validate functions for both js and php to allow for specific,
+  excluded, or custom checks/RegEx's
+- Created 'Module Maker' to enable humans and AI Agents to quickly make
+  modules
+- Updated the setup routine to add the 'Support Email' to the admin account
+- Adjusted default.php to display: Setup, *Requested*, default, Application
+- Turned dashboard.* > Application.* and updated code
+- Turned 'Application' into several API's: Application, Dashboard, Module,
+  and Widgets
+- Converted all libraries into functions as APIs
+- Updated _Calendar to return the correct date if previous/next month's days
+  are selected (included year changes)
+- Moved the _Calendar date clearing function into a clickable option instead
+  of erasing the value by default
+- Updated the _Calendar to automatically match an existing date value
+- Renamed _tabstrip to _Tabs
+- Merged _popup into _Project
+- Moved _money into _Numbers
+- Updated and added multiple functions to _Ajax
+- Updated and added multiple functions to _Listbox
+- Separated _global into _Security, _Database, and _Project
+- Merged _Share and _mimemail into _Contact
+- Moved _bug and _feature into _Share
+- Moved 'bug' and 'feature' code from 'dashboard' into _bug and _feature
+- Moved _login and _logout into _Session
+- Moved look/default/default.* > look/default/_Session.*
+- Updated setCookie() in _Cookie.js to incorporate dynamic date assignments
+- Introduced the global array gbl_dbug to config.php
+- Resolved several bugs with Setup.php that would hang up the process in
+  previous versions
+- Rearranged the ordering of functions in _global.php
+- Added another exception to myExceptionHandler() in _global.php
+- Added boolean checking (and value manipulation) to validate() in _global.php
+- Synchronized the names in the UI and backend (will sync with DB columns later)
+- For security, all the initial setup files are automatically deleted upon a
+  successful installation
+- Cleaned up the 'Mappings' in the setup to use just the UID, Username, and
+  Password fields
+- Added the 'Admin Password', 'Look and Feel', and 'Mode of Operation' fields to
+  the setup, removing the 'Business Configuration' module as a necessity
+- Added password/text toggle to password fields in Setup.html
+- Updated the Setup GUI to include more help
+- Added Setup.html checking in default.php
+
+  pre-2020 (unreleased)
+- Fixed a bug with the 'Business Configuration' module regarding the 'pay date'
+  value - this will need to be set correctly after this update!
+- Corrected several bugs in 'Accounting' module
+- Corrected a bug in 'Inventory' that prevented all 'Included ID Codes' from
+  being selected
+- Added a redirect to the setup page if accessing for the first time without
+  directly using the setup URL
+- Updated the '?' buttons to reference the secured URL to the wiki
+- Implemented the validate() function to prevent submission of malicious values
+- Updated the safeSQL() calls with safeXML()
+- Updated all the SQL code to use the module 7.2+ branch instead of the 5.x
+- Corrected a bug in the QI module for calculating discounts
+- Updated all the jsAPI scripts to the latest versions
+- Cleaned up the codebase by getting rid of old, commented out code
+- Fixed a bug related to the Work Orders module that did not take a selected
+  inventory item out of available products when added to a document
+- Improved the search fields functionality
+- Fully implemented the "I have read these" balloon button
+- Enabled usernames to use email addresses for 'Employees' and 'Customer
+  Accounts' modules
+- Added additional checks to php scripts when INSERT->query() was called
+
+  2016.04.11
+- Finalized the 'Accounting' module
+- Modified the 'Customer Accounts' to show a true balance if the 'Accounting'
+  module is installed
+- The webBooks core now creates a crontab job for the maintenance.php script to
+  run automatically at midnight
+- Resolved several small bugs common to all modules
+- Resolved a bug with the population of available serial numbers in the 'Quotes
+  and Invoices' module
+
+  2016.03.21
+- The 'Import', 'Export', and 'Archive' buttons now work in 'System Configuration'
+- Added a 'See More' button to the 'Asset Management' modules history tab
+- Corrected the 'Inventory' module so that newly added history details get added
+  after the 'See More' button
+- Fixed a bug with the dynamic filter header values that would show duplicates in
+  the listing if their values were changed and the 'Show More' button was clicked
+- Fixed a bug that processed internal notes quantity and back order values of work
+  orders
+- Fixed several bugs in the 'Customer Accounts' module
+- Fixed a bug that was creating multiple serial number records when updating an
+  existing record in the 'Quotes and Invoices' module
+- Same as above with the 'Work Orders' module
+- Fixed a bug that was storing blank serial number records for 'Inventory'
+- Fixed a bug that prevented the 'access' value from getting added correctly for
+  the Notes table
+- Fixed a potential bug with logging in with mobile devices
+
+  2016.03.02
+- Added dynamic filter values in the list tab (#) for the 'Quotes and Invoices'
+  and 'Work Orders' modules
+
+  2016.02.15
+- Fixed several bugs in the 'Customer Accounts' module
+- Fixed several bugs in the 'Quotes and Invoices' module
+- Fixed several bugs in the 'Work Orders' module
+- Added the 'Type' field that specifies whether a item is a product or service
+  in the 'Inventory' module
+
+  2016.02.11
+- Fixed several bugs in the 'Quotes and Invoices' module
+
+  2016.01.21
+- Fixed several bugs in the 'Asset Management' module
+- Fixed several bugs in the 'Quotes and Invoices' module
+- Fixed several bugs in the 'Work Orders' module
+
+  2016.01.13
+- Fixed several bugs with the projects core
+- Fixed several bugs in the 'Quotes and Invoices' module
+- Fixed several bugs in the 'Work Orders' module
+
+  2015.12.23
+- Development has stopped over the Christmas holiday and will resume during the
+  first week of January.
+
+
+GREETINGS
+
+First we would like to say thanks for taking interest in our project!  Currently
+this software is in beta so you may find bugs, but should still mostly be able
+to use the software as designed. Also, instead of duplicating issue tracking on
+this site, we would like to direct you to the following URL to see outstanding
+items along with what has been resolved:
+
+http://www.cliquesoft.org/#Issues
+
+
+CONTACT
+
+To help us identify all the errors that are currently present in our software so
+they can be fixed, we need to hear from you!  We have several options available
+that include phone, email, and forum access.
+
+Also, please feel free to use our wiki to quickly get help on installation and
+operation of our various software.  And if you see something is missing or needs
+further clarification, get in touch with us!
+
+http://wiki.cliquesoft.org/index.php?title=Main_Page
+
+
+RELEASES
+
+Since we have multiple projects that are being developed, we are splitting our
+time between each project. Typically we will be releasing several versions every
+other week.
